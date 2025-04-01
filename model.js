@@ -32,20 +32,17 @@ const model = {
             isPoisonous: false,
             sort: '',
         },
-        newRegistrations: {
-            id: 0, 
-            acceptedToBePublished: false
-        },
-        rewards: { 
-            selectedRewardId: 0, 
-        },
+       //lang tilbake i loggen nice 
+        // rewards: { 
+        //     selectedRewardId: 0, 
+
+        // },
         
         registerFinding: {
             name: '',
             img: '',
-            locationId: '', //discuss later what is location
-            description: '',
-            acceptedToBePublished: false
+            locationId: '', 
+            description: ''
         },
         addLocationItemPage: {
             locationId: ''
@@ -85,12 +82,14 @@ const model = {
         
         items: [
             {id: 1, name: 'Kantarell', latinName: 'Cantharellus cibarius', description: "Gylden sopp ved foten av treet.", type: 1},
-            {id: 2, name: 'Blåbær', latinName: 'Vaccinium myrtillus', description: "Blåbær er en flerårig dvergbusk i bærlyngslekta", type: 1}
+            {id: 2, name: 'Blåbær', latinName: 'Vaccinium myrtillus', description: "Blåbær er en flerårig dvergbusk i bærlyngslekta", type: 1},
+            {id: 3, name: 'Fluesopp', latinName: 'Amanita muscaris', description: "Dreper fluer med vann samlet i hetten på gamle sopp", type: 3}
         ],
         
         types: [
             {id: 1, name: 'Sopp'},
             {id: 2, name: 'Bær'},
+            {id: 3, name: 'Plant'}
         ],
         
         lookALikes: [
@@ -107,8 +106,7 @@ const model = {
         itemCharacteristics: [
             {itemId: 1, type: 1},
             {itemId: 2, type: 1},
-            {itemId: 3, type: 2},
-            {itemId: 4, type: 3}
+            {itemId: 3, type: 3}
         ],
         
         characteristics: [
@@ -135,15 +133,3 @@ const model = {
 }
 }
     
-    
-    // function getPlacesOfFood(foodId) {
-        //     const places = [];
-
-        //     for(finding of findings) {
-            //         if(foodId === finding[foodId]){
-                //             places.push(finding[locationId]);
-                //         }
-                //     }
-                
-                //     return places;
-                // }
