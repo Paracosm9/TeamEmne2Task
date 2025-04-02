@@ -2,15 +2,15 @@ const model = {
     
     app : {
         currentUser: '',
-        currentPage: 'mainPage', 
+        currentPage: 'homePage', 
+
         pages : {
             login: 'loginReg',
             findings: 'findingsPage',
             catalog: 'catalog',
             search: 'searchFilter',
             adminPage: 'adminPage',
-            adminCatalog: 'adminCatalog',
-            itemsAdmin: 'itemPageForAdmin',
+            // itemsAdmin: 'itemPageForAdmin', to impelement inputs for changing items (c) Andrew
             newlyRegistered: 'newlyRegistered',
             rewards: 'rewards',
             registerFinding: 'registerFinding'
@@ -132,4 +132,5 @@ const model = {
     }
 }
 }
-    
+
+
