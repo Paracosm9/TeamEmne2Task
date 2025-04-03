@@ -1,32 +1,16 @@
 function catalogView() {
-
     // let isAdmin = false 
-    
     if (model.inputs.catalog.sort == ''){
         getArrayOfItems();
     }
-    let html = drawCatalogView();
-    return html;
+    return drawCatalogView();
 }
 
-/**
- * To do: 
- * 1. plugs for everything
- * 2. Change plugs to something. 
- * 3. Sorting should be the field. 
- * 4. 
- * 3. Leave it as it is to wait for code. 
- * 
- */
-// function catalogItem(){
-
-// }
 function drawCatalogView() {
     let divApp = ``;
     divApp = /*HTML*/`
     ${drawSorting()}
     ${drawCatalog()}
-
     `;
     return divApp;
 }
