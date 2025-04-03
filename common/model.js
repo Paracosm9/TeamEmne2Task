@@ -2,7 +2,8 @@ const model = {
     
     app : {
         currentUser: '',
-        currentPage: 'homePage', 
+        // currentPage: 'homePage', 
+        currentPage: 'catalog', 
 
         pages : {
             login: 'loginReg',
@@ -24,6 +25,7 @@ const model = {
         },
         catalog: {
             sort: '',
+            items: [] //added array of formed items; 
         },
         searchFilter: {
             name: '',
@@ -48,6 +50,7 @@ const model = {
             locationId: ''
     
     },
+},
     
     data : {
         users: [
@@ -77,13 +80,15 @@ const model = {
         
         findings: [
             {id: 1, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-26', description: 'Mange kantareller!!! Bak et tre.', acceptedToBePublished: true},
+            {id: 2, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-11', description: 'Kantareller!! Bak et tre.', acceptedToBePublished: true},
+            {id: 3, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-22', description: 'Sopp!!! Bak et tre.', acceptedToBePublished: true},
             {id: 2, userId: 2, itemId: 2, locationId: 2, dateFind: '2025-03-20', description: 'Her var det lite blåbær..', acceptedToBePublished: false}
         ],
         
         items: [
             {id: 1, name: 'Kantarell', latinName: 'Cantharellus cibarius', description: "Gylden sopp ved foten av treet.", type: 1},
-            {id: 2, name: 'Blåbær', latinName: 'Vaccinium myrtillus', description: "Blåbær er en flerårig dvergbusk i bærlyngslekta", type: 1},
-            {id: 3, name: 'Fluesopp', latinName: 'Amanita muscaris', description: "Dreper fluer med vann samlet i hetten på gamle sopp", type: 3}
+            {id: 2, name: 'Blåbær', latinName: 'Vaccinium myrtillus', description: "Blåbær er en flerårig dvergbusk i bærlyngslekta", type: 2},
+            {id: 3, name: 'Fluesopp', latinName: 'Amanita muscaris', description: "Dreper fluer med vann samlet i hetten på gamle sopp", type: 1}
         ],
         
         types: [
@@ -131,6 +136,6 @@ const model = {
         ]
     }
 }
-}
+
 
 
