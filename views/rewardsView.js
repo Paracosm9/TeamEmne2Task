@@ -13,28 +13,13 @@ function rewardsView() {
 function drawRewardsView() {
     let divApp = ``;
     divApp = /*HTML*/`
-        ${drawRewardSearch()}
         ${drawRewards()}
         ${drawRewardButtons()}
     `;
     return divApp;
 }
 
-function drawRewardSearch() {
-    let searchHtml = /*HTML*/`                              
-        <input 
-            type="text" 
-            name="searchReward" 
-            id="searchReward" 
-            placeholder="Search Reward" 
-            oninput="model.inputs.rewards.searchText = this.value; updateView()"
-            style="padding: 5px;"
-        >
-        <br><br>
-        <hr>
-    `;
-    return searchHtml;
-}
+
 
 function drawRewards() {
     let rewardsHtml = ``;
