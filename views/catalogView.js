@@ -81,7 +81,6 @@ function drawSorting() {
 function drawCatalog() {
     let catalogHtml = ``;
     let items = model.inputs.catalog.items;
-    console.log("Items in draw " + items)
     for (const item of items) {
         let oneItemHTML = /*HTML*/`
             <div class = "itemCatalog" style = "border: 5px solid black; margin: 20px" onclick = "goToPage(${item.id})">
@@ -90,8 +89,8 @@ function drawCatalog() {
              Latin name: ${item.latinName}<br>
              ImaginaryImage (would be changed): ${item.oneImage}<br>
              Type: ${item.type}<br>
-             Amount of places were founded: ${item.amountOfPlaces}<br>
-             PLUG Places were founded: ${item.locations.toString()}<br>
+             Amount of places were found: ${item.amountOfPlaces}<br>
+             PLUG Places were found: ${item.locations.length > 0 ? item.locations.toString() : "Ingen..."}<br>
             
             </div>
             <br>
