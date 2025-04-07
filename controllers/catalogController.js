@@ -1,4 +1,9 @@
-function getArrayOfItems() {
+function getArrayOfItems() { 
+    model.inputs.catalog.items = getFilteredAndSortedData(); 
+    updateView();    
+}
+
+function getFilteredAndSortedData(){
     let items = model.data.items;
     let itemsWithType = [];
     for (const item of items) {
@@ -10,13 +15,43 @@ function getArrayOfItems() {
             latinName: item.latinName,
             description: item.description,
             type: getType(typeId),
+            characteristics: getCharacteristics(itemId),
             amountOfPlaces: getAmountOfPlaces(itemId),
-            oneImage: getImageForItem(itemId)
+            oneImage: getImageForItem(itemId), 
+            locations: getLocations(itemId)
         });
     }
-    console.log(itemsWithType);
     model.inputs.catalog.items = itemsWithType; 
-    return itemsWithType;
+    sortByOption(); 
+    searchByName();
+    searchByLocation(); 
+    filterByCharacteristic(); 
+    return model.inputs.catalog.items;
+}
+
+function isFirstCall(){
+    let input = model.inputs.catalog; 
+    console.log(input);
+     return (input.sort == '' && input.name == '' && input.location == '' 
+        && input.isEdible == false && input.isPoisonous == false && input.isPartiallyEdible == false
+        && input.items.length == 0
+    )  
+}
+
+function getLocations(itemId){
+    let locations = []; 
+    for (const find of model.data.findings) {
+        if (find.itemId == itemId && find.acceptedToBePublished){
+            let locationId = find.locationId;
+            for (const location of model.data.location) {
+                if (locationId == location.id && !locations.includes(location.name)){
+                    locations.push(location.name); 
+                }
+            } 
+        }
+    }
+    console.log(locations); 
+    return locations; 
 }
 
 function getType(typeId) {
@@ -70,28 +105,24 @@ function getImageForItem(itemId) {
     return imaginaryImg; 
 }
 
-function goToPage(id){
-    console.log("This is plug for item id: " + id);
-}
 
 function sortByOption(){ 
     let option = model.inputs.catalog.sort; 
     if (option == '') {
         return; 
     }
-    
-    if (option == 'artsnavn' ){
-        model.inputs.catalog.items.sort(
+    let sorted = [];
+    if (option == 'artsnavn'){
+      sorted = model.inputs.catalog.items.sort(
             function (a, b) {
                 if (a.name == b.name) return 0;
                 if (a.name > b.name) return 1;
                 else return -1;
             }
         );
-
     }
     else if (option == 'antall') {
-        model.inputs.catalog.items.sort(
+        sorted = model.inputs.catalog.items.sort(
             function (a, b) {
                 if (a.amountOfPlaces == b.amountOfPlaces) return 0;
                 if (a.amountOfPlaces < b.amountOfPlaces) return 1;
@@ -99,5 +130,90 @@ function sortByOption(){
             }
         );
     }
-    updateView();
+    model.inputs.catalog.items = sorted; 
+}
+
+function searchByName(){
+    if ( model.inputs.catalog.name == '' ){
+        return; 
+    }
+
+    let name = model.inputs.catalog.name.toLowerCase(); 
+    let items = model.inputs.catalog.items; 
+    let filteredItems = []; 
+    for (const item of items) {
+        if (item.name.toLowerCase().includes(name)){
+            filteredItems.push(item); 
+        }
+    }
+    model.inputs.catalog.items = [...filteredItems];
+}
+
+function searchByLocation(){
+    if ( model.inputs.catalog.location == ''){
+        return; 
+    }
+
+    let locationFromSearch = model.inputs.catalog.location.toLowerCase(); 
+    let items = model.inputs.catalog.items; 
+    let filteredItems = []; 
+    for (const item of items) {
+        if (item.locations.length > 0){
+            for (const location of item.locations) {
+                if (location.toLowerCase().includes(locationFromSearch)){
+                    filteredItems.push(item); 
+                    break; //we found once, no need to push same objects here.
+                }
+            }
+        }
+    }
+    model.inputs.catalog.items = [...filteredItems];
+}
+
+
+
+function getCharacteristics(itemId){
+    let itemChar = model.data.itemCharacteristics;
+    for (const characteristic of itemChar) {
+        if (characteristic.itemId == itemId) {  
+            return getEdibleOrNotChar(characteristic.type);
+        }
+    }
+    throw "Check items characteristics: item id was not found in characterstics!"
+
+}
+
+function getEdibleOrNotChar(typeId){
+    let characteristics = model.data.characteristics;
+    for (const characteristic of characteristics) {
+        if (characteristic.itemId == typeId) {
+            return characteristic.type;
+        }
+    }
+}
+
+
+function filterByCharacteristic(){
+    if (model.inputs.catalog.isEdible == false && model.inputs.catalog.isPoisonous == false && model.inputs.catalog.isPartiallyEdible == false){
+        return; 
+    }
+    let newItems = []; 
+    for (const item of model.inputs.catalog.items){
+        if (model.inputs.catalog.isEdible && item.characteristics == 'Edible'){
+            newItems.push(item); 
+        }
+        if (model.inputs.catalog.isPoisonous && item.characteristics == 'Non-Edible'){
+            newItems.push(item); 
+        }
+        if (model.inputs.catalog.isPartiallyEdible && item.characteristics == 'Edible(if prepared in proper way)'){
+            
+            newItems.push(item); 
+        }
+    }
+    model.inputs.catalog.items = newItems; 
+}
+
+
+function goToPage(id){
+    console.log("This is plug for item id: " + id);
 }
