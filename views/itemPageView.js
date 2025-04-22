@@ -1,4 +1,4 @@
-function findingsPageView (){
+function itemPageView (){
     let id = 1; //to change; should be changed by click or by page. 
     return drawItem(id);
 }
