@@ -17,10 +17,8 @@ function drawView(){
         name = "findingLink"
         onchange = "model.inputs.registerFinding.img = this.value, isFieldEmpty(this.id), updatePageWithImg()"
         >
-        <img src="${model.inputs.registerFinding.img == '' || !isValidUrl(model.inputs.registerFinding.img) ? '' : model.inputs.registerFinding.img}" 
-        width = "${model.inputs.registerFinding.img == '' || !isValidUrl(model.inputs.registerFinding.img) ? '' : "100"}"
-        height = "${model.inputs.registerFinding.img == '' || !isValidUrl(model.inputs.registerFinding.img) ? '' : "100"}"
-        >
+        ${model.inputs.registerFinding.img == '' || !isValidUrl(model.inputs.registerFinding.img) ? '' : `<img src ="${model.inputs.registerFinding.img}" width = "100" height = "100" referrerpolicy="noreferrer"></img>`}
+
 
         <br>
         <input type="text" id="findName" 

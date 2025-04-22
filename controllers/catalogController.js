@@ -138,7 +138,7 @@ function searchByName(){
         return; 
     }
 
-    let name = model.inputs.catalog.name.toLowerCase(); 
+    let name = model.inputs.catalog.name?.toLowerCase(); 
     let items = model.inputs.catalog.items; 
     let filteredItems = []; 
     for (const item of items) {

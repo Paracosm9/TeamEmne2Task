@@ -5,8 +5,7 @@
         let currentPageView = '';
 
         if (page === 'homePage') {
-            currentPageView = `TEST LOL`; 
-            // homePageView(); 
+            currentPageView = homePageView(); 
         }
         else if (page === 'loginReg') {
             currentPageView =  loginRegView();
@@ -37,20 +36,11 @@
     // <!--${headerView()} -->   
     document.getElementById('app').innerHTML = /*HTML*/`   
         <div class="container">
-            <h1>PLUG</h1>        
+            <h1 style = "color: red">PLUG FOR HEADER</h1>        
             
             ${currentPageView}
             <br>            
-            <div>
-                Todo:
-                <ul>
-                    <li><s>Søke brukere</s></li>
-                    <li><s>Legge til brukere</s></li>
-                    <li>Forbedre routing?</li>
-                    <li>Øke gjenbrukbarhet?</li>
-                    <li><s>Slette brukere</s></li>                    
-                </ul>
-            </div>
+            <h1 style = "color: red">PLUG FOR FOOTER</h1> 
         </div>
     `;
 }

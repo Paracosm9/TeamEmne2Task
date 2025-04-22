@@ -2,9 +2,10 @@ const model = {
     
     app : {
         currentUser: '',
-        // currentPage: 'homePage', 
+        currentPage: 'homePage', 
         // currentPage: 'catalog', 
-        currentPage: 'itemPage', 
+        // currentPage: 'itemPage', 
+        // currentPage: 'itemPage', 
 
         pages : {
             login: 'loginReg',
@@ -136,6 +137,8 @@ const model = {
             {id: 7, filePath: 'common/images/findings/kant_find1.jpg'},
             {id: 8, filePath: 'common/images/findings/kant_find2.jpg'},
             {id: 9, filePath: 'common/images/findings/kant_find3.jpg'},
+            {id: 10, filePath: 'common/images/items/Vaccinium_uliginosum_fruit.jpg'},
+            {id: 11, filePath: 'common/images/items/fluesopp_item.jpg'},
         ],
         
         rewardImages: [
@@ -152,7 +155,8 @@ const model = {
         itemsImages: [
             {itemId: 1, imgId: 4},
             {itemId: 1, imgId: 5},
-            {itemId: 1, imgId: 6}
+            {itemId: 2, imgId: 10},
+            {itemId: 3, imgId: 11}
         ]
     }
 }

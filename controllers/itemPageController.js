@@ -17,7 +17,6 @@ function drawImages(id) {
 }
 
 function drawDescription() {
-    console.log(this.id)
     for (const item of model.data.items) {
         if (item.id = this.id) {
             return item.description;
@@ -75,7 +74,6 @@ function drawFindingsCarousell() {
     let findingsHTML = ``;
     for (const finding of model.data.findings) {
         if (finding.acceptedToBePublished && finding.itemId == this.id) {
-            console.log("I M HERE")
             findingsWithImages.push({
                 id: finding.id,
                 location: getLocationName(finding.locationId),
