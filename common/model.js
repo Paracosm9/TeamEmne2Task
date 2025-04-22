@@ -4,11 +4,11 @@ const model = {
         currentUser: '',
         // currentPage: 'homePage', 
         // currentPage: 'catalog', 
-        currentPage: 'findingsPage', 
+        currentPage: 'itemPage', 
 
         pages : {
             login: 'loginReg',
-            findings: 'findingsPage',
+            item: 'itemPage',
             catalog: 'catalog',
             search: 'searchFilter',
             adminPage: 'adminPage',

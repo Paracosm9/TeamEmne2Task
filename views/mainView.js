@@ -14,8 +14,8 @@
         else if (page === 'catalog') {
             currentPageView =  catalogView();
         }
-         else if (page === 'findingsPage') {
-            currentPageView =  findingsPageView();
+         else if (page === 'itemPage') {
+            currentPageView = itemPageView();
         }
         else if (page === 'searchFilter') {
             currentPageView = searchFilterView();
@@ -33,7 +33,7 @@
             currentPageView = registerFindingView();
         }
   
-    console.log(currentPageView);
+    // console.log(currentPageView);
     // <!--${headerView()} -->   
     document.getElementById('app').innerHTML = /*HTML*/`   
         <div class="container">

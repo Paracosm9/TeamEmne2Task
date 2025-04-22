@@ -1,0 +1,124 @@
+let id = 0;
+
+function drawImages(id) {
+    this.id = id;
+    let html = ``;
+    for (const item of model.data.itemsImages) {
+        if (item.itemId == id) {
+            let idOfImage = item.imgId;
+            for (const image of model.data.images) {
+                if (image.id == idOfImage) {
+                    html += `<img src ="${image.filePath}" width = "100" height = "100">`;
+                }
+            }
+        }
+    }
+    return html;
+}
+
+function drawDescription() {
+    console.log(this.id)
+    for (const item of model.data.items) {
+        if (item.id = this.id) {
+            return item.description;
+        }
+    }
+}
+
+function drawName() {
+    for (const item of model.data.items) {
+        if (item.id = this.id) {
+            return item.name;
+        }
+    }
+}
+function drawLatinName() {
+    for (const item of model.data.items) {
+        if (item.id = this.id) {
+            return item.latinName;
+        }
+    }
+}
+
+function getAmountOfFoundings() {
+    let amountOfFindings = 0;
+    for (const finding of model.data.findings) {
+        if (finding.itemId == this.id) {
+            amountOfFindings++;
+        }
+    }
+    return amountOfFindings;
+}
+
+function getPlacesWereFound() {
+    let locations = [];
+    let htmlPlaces = `<ul>`;
+    for (const findings of model.data.findings) {
+        if (findings.itemId == this.id && findings.acceptedToBePublished && !(locations.includes(findings.locationId))) {
+            locations.push(findings.locationId);
+        }
+    }
+    for (const location of locations) {
+        console.log(location + " - this is location from findings");
+        for (const locationInData of model.data.location) {
+            if (location == locationInData.id) {
+                htmlPlaces += `<li>${locationInData.name}</li>`;
+            }
+        }
+    }
+    htmlPlaces += `</ul>`
+    return htmlPlaces;
+}
+
+function drawFindingsCarousell() {
+    let findingsWithImages = [];
+    let findingsHTML = ``;
+    for (const finding of model.data.findings) {
+        if (finding.acceptedToBePublished && finding.itemId == this.id) {
+            console.log("I M HERE")
+            findingsWithImages.push({
+                id: finding.id,
+                location: getLocationName(finding.locationId),
+                dateFind: finding.dateFind,
+                imagePath: getImagePath(finding.id)
+                //userId to add? 
+
+            }); 
+        }
+    }
+    for (const finding of findingsWithImages) {
+        let oneFinding = /*HTML*/`
+        <div class = "carouselElement" style = "border: 3px dashed green">
+        <img src =${finding.imagePath} width = "100" height = "100"><br>
+        Date: ${finding.dateFind}<br>
+        Location: ${finding.location}
+        </div>
+        `; 
+        findingsHTML += oneFinding; 
+    }
+    return findingsHTML;
+}
+
+function getImagePath(idOfFinding){
+    for (const imgFinding of model.data.findingImages) {
+        if(imgFinding.findingId == idOfFinding){
+            for (const image of model.data.images) {
+                if (image.id == imgFinding.imgId){
+                    return image.filePath; 
+                }
+            }
+        }
+    }
+}
+
+function getLocationName(idOfLocation){
+    for (const location of model.data.location) {
+        if(location.id == idOfLocation){
+            return location.name;
+        }
+    }
+}
+
+function goToRegisterFinding() {
+    console.log("PLUG: Go to registerFindingPage");
+}
