@@ -3,8 +3,8 @@ const model = {
     app : {
         currentUser: '',
         // currentPage: 'homePage', 
-        currentPage: 'catalog', 
-        // currentPage: 'registerFinding', 
+        // currentPage: 'catalog', 
+        currentPage: 'findingsPage', 
 
         pages : {
             login: 'loginReg',
@@ -87,7 +87,8 @@ const model = {
             {id: 1, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-27T08:55:00', description: 'Mange kantareller!!! Bak et tre.', acceptedToBePublished: true},
             {id: 2, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-29T08:55:00', description: 'Kantareller!! Bak et tre.', acceptedToBePublished: true},
             {id: 3, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-30T08:55:00', description: 'Sopp!!! Bak et tre.', acceptedToBePublished: true},
-            {id: 4, userId: 2, itemId: 2, locationId: 2, dateFind: '2025-03-22T08:55:00', description: 'Her var det lite blåbær..', acceptedToBePublished: false}
+            {id: 4, userId: 1, itemId: 1, locationId: 1, dateFind: '2025-04-30T08:55:00', description: 'Sopp!!! Mange!', acceptedToBePublished: true},
+            {id: 5, userId: 2, itemId: 2, locationId: 2, dateFind: '2025-03-22T08:55:00', description: 'Her var det lite blåbær..', acceptedToBePublished: false}
         ],
         
         items: [
@@ -126,9 +127,15 @@ const model = {
         ],
         
         images: [
-            {id: 1, filePath: 'mappe/findings/blaabaer.jpg'},
+            {id: 1, filePath: 'common/images/findings/Blåbær.jpg'},
             {id: 2, filePath: 'mappe/findings/kantarell.jpg'},
-            {id: 3, filePath: 'mappe/rewards/cola.jpg'}
+            {id: 3, filePath: 'mappe/rewards/cola.jpg'},
+            {id: 4, filePath: 'common/images/items/Hygrophoropsis_aurantiaca.jpg'},
+            {id: 5, filePath: 'common/images/items/kantarell_item.jpg'},
+            {id: 6, filePath: 'common/images/items/standard_kantarell_37810.jpg'},
+            {id: 7, filePath: 'common/images/findings/kant_find1.jpg'},
+            {id: 8, filePath: 'common/images/findings/kant_find2.jpg'},
+            {id: 9, filePath: 'common/images/findings/kant_find3.jpg'},
         ],
         
         rewardImages: [
@@ -137,7 +144,15 @@ const model = {
         ],
         
         findingImages: [
-            {findingId: 1, imgId: 2}
+            {findingId: 1, imgId: 7},
+            {findingId: 2, imgId: 8},
+            {findingId: 3, imgId: 9},
+        ], 
+
+        itemsImages: [
+            {itemId: 1, imgId: 4},
+            {itemId: 1, imgId: 5},
+            {itemId: 1, imgId: 6}
         ]
     }
 }
