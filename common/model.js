@@ -4,6 +4,7 @@ const model = {
         currentUser: '',
         // currentPage: 'homePage', 
         currentPage: 'catalog', 
+        // currentPage: 'registerFinding', 
 
         pages : {
             login: 'loginReg',
@@ -14,7 +15,8 @@ const model = {
             // itemsAdmin: 'itemPageForAdmin', to impelement inputs for changing items (c) Andrew
             newlyRegistered: 'newlyRegistered',
             rewards: 'rewards',
-            registerFinding: 'registerFinding'
+            registerFinding: 'registerFinding',
+            thankYouAddedFind: 'thankYouAdded'
         }
     },
     
@@ -25,15 +27,18 @@ const model = {
         },
         catalog: {
             sort: '',
-            items: [] //added array of formed items; 
-        },
-        searchFilter: {
-            name: '',
+            items: [],
             location: '',
             isEdible: false,
             isPoisonous: false,
-            sort: '',
+            isPartiallyEdible: false,
+            name: '',
+            //added array of formed items; 
         },
+        // searchFilter: {
+            
+           
+        // },
        //lang tilbake i loggen nice 
         // rewards: { 
         //     selectedRewardId: 0, 
@@ -43,12 +48,12 @@ const model = {
         registerFinding: {
             name: '',
             img: '',
-            locationId: '', 
+            // locationId: '', 
+            locationName: '', 
             description: ''
         },
         addLocationItemPage: {
-            locationId: ''
-    
+            locationId: ''  
     },
 },
     
@@ -79,10 +84,10 @@ const model = {
         ],
         
         findings: [
-            {id: 1, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-26', description: 'Mange kantareller!!! Bak et tre.', acceptedToBePublished: true},
-            {id: 2, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-11', description: 'Kantareller!! Bak et tre.', acceptedToBePublished: true},
-            {id: 3, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-22', description: 'Sopp!!! Bak et tre.', acceptedToBePublished: true},
-            {id: 2, userId: 2, itemId: 2, locationId: 2, dateFind: '2025-03-20', description: 'Her var det lite blåbær..', acceptedToBePublished: false}
+            {id: 1, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-27T08:55:00', description: 'Mange kantareller!!! Bak et tre.', acceptedToBePublished: true},
+            {id: 2, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-29T08:55:00', description: 'Kantareller!! Bak et tre.', acceptedToBePublished: true},
+            {id: 3, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-30T08:55:00', description: 'Sopp!!! Bak et tre.', acceptedToBePublished: true},
+            {id: 4, userId: 2, itemId: 2, locationId: 2, dateFind: '2025-03-22T08:55:00', description: 'Her var det lite blåbær..', acceptedToBePublished: false}
         ],
         
         items: [
