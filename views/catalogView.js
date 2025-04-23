@@ -83,7 +83,7 @@ function drawCatalog() {
     let items = model.inputs.catalog.items;
     for (const item of items) {
         let oneItemHTML = /*HTML*/`
-            <div class = "itemCatalog" style = "border: 5px solid black; margin: 20px" onclick = "goToPage(${item.id})">
+            <div class = "itemCatalog" style = "border: 5px solid black; margin: 20px" onclick = "setItemPage(model.app.pages.item,${item.id})">
              Name: ${item.name}<br>
              Description: ${item.description}<br>
              Latin name: ${item.latinName}<br>

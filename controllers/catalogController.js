@@ -212,8 +212,3 @@ function filterByCharacteristic(){
     }
     model.inputs.catalog.items = newItems; 
 }
-
-
-function goToPage(id){
-    console.log("This is plug for item id: " + id);
-}

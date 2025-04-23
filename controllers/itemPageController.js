@@ -42,7 +42,7 @@ function drawLatinName() {
 function getAmountOfFoundings() {
     let amountOfFindings = 0;
     for (const finding of model.data.findings) {
-        if (finding.itemId == this.id) {
+        if (finding.itemId == this.id && finding.acceptedToBePublished) {
             amountOfFindings++;
         }
     }
@@ -86,7 +86,7 @@ function drawFindingsCarousell() {
     }
     for (const finding of findingsWithImages) {
         let oneFinding = /*HTML*/`
-        <div class = "carouselElement" style = "border: 3px dashed green">
+        <div class = "carouselElement" style = "border: 3px dashed green" onclick = "setFindingPage(model.app.pages.finding,${finding.id})">
         <img src =${finding.imagePath} width = "100" height = "100"><br>
         Date: ${finding.dateFind}<br>
         Location: ${finding.location}
@@ -115,8 +115,4 @@ function getLocationName(idOfLocation){
             return location.name;
         }
     }
-}
-
-function goToRegisterFinding() {
-    console.log("PLUG: Go to registerFindingPage");
 }

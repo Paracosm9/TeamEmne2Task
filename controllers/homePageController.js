@@ -1,5 +1,4 @@
 function createAndShowItems() {
-    console.log ("SSSS")
     let html = ``;
     let imageWithName = [];
     for (const item of model.data.items) {
@@ -18,23 +17,23 @@ function createAndShowItems() {
                     }
                 }
             }
-            imageWithName.push(
-                {
-                    itemName: name, 
-                    img: imagePath
-                }
-            )
+            imageWithName.push({
+                itemId: item.id,
+                itemName: name,
+                img: imagePath
+            }
+            );
         }
     }
 
     for (const element of imageWithName) {
         let oneItem = /*HTML*/`
-        <div class = "carouselElement" style = "border: 3px dashed green">
+        <div class = "carouselElement" style = "border: 3px dashed green" onclick = "setItemPage(model.app.pages.item,${element.itemId})">
         <img src =${element.img} width = "100" height = "100"><br>
         Navn: ${element.itemName}<br>
         </div>
-        `; 
-        html += oneItem; 
+        `;
+        html += oneItem;
     }
     return html;
 }

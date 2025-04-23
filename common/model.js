@@ -3,6 +3,9 @@ const model = {
     app : {
         currentUser: '',
         currentPage: 'homePage', 
+        previousPage: '',
+        currentItem: 0, 
+        currentFinding: 1, 
         // currentPage: 'catalog', 
         // currentPage: 'itemPage', 
         // currentPage: 'itemPage', 
@@ -10,9 +13,11 @@ const model = {
         pages : {
             login: 'loginReg',
             item: 'itemPage',
+            finding: 'findingPage',
             catalog: 'catalog',
             search: 'searchFilter',
             adminPage: 'adminPage',
+            homeAndMain: 'homePage',
             // itemsAdmin: 'itemPageForAdmin', to impelement inputs for changing items (c) Andrew
             newlyRegistered: 'newlyRegistered',
             rewards: 'rewards',

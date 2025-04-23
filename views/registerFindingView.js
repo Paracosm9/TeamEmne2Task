@@ -45,7 +45,7 @@ function drawView(){
 
         <div class = "findingAdd" style = "border: 5px solid black; margin: 20px; display:flex; justify-content: center; flex-direction: row; padding: 5px;">
         <button class = "addButton" id = "regFindButtonOk" onclick = "updateModel()" >Registrer</button>
-        <button class = "addButton" id = "regFindButtonCancel" onclick = "goBackToPage()">Avbryt</button>
+        <button class = "addButton" id = "regFindButtonCancel" onclick = "setPage(model.app.pages.catalog)">Avbryt</button>
         </div>
     `;
 }
@@ -53,10 +53,6 @@ function drawView(){
 function drawThankYouPage(){
     return /*HTML*/`
     <h1>Takk for din funn!<h1>
-    <button onclick = "changePageToCatalog()">Gå tilbake til catalog</button>
+    <button onclick = "setPage(model.app.pages.catalog)">Gå tilbake til catalog</button>
     `;
-}
-
-function changePageToCatalog(){ 
-    console.log ("Here would be redirect to catalog!")
 }

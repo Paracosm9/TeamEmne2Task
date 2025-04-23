@@ -3,6 +3,7 @@
         const page = model.app.currentPage; 
 
         let currentPageView = '';
+        let previousPageView = '';
 
         if (page === 'homePage') {
             currentPageView = homePageView(); 
@@ -27,6 +28,10 @@
         }
         else if (page === 'rewards') {
             currentPageView = rewardsView();
+        }
+
+        else if (page === 'findingPage') {
+            currentPageView = findingView();
         }
         else if (page === 'registerFinding') {
             currentPageView = registerFindingView();
