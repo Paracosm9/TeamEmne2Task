@@ -5,7 +5,7 @@ const model = {
         currentPage: 'homePage', 
         previousPage: '',
         currentItem: 0, 
-        currentFinding: 1, 
+        currentFinding: 0, 
         // currentPage: 'catalog', 
         // currentPage: 'itemPage', 
         // currentPage: 'itemPage', 

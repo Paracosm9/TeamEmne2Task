@@ -1,10 +1,10 @@
 let id = 0;
 
-function drawImages(id) {
-    this.id = id;
+function drawImages() {
+    this.id = model.app.currentItem;
     let html = ``;
     for (const item of model.data.itemsImages) {
-        if (item.itemId == id) {
+        if (item.itemId == this.id) {
             let idOfImage = item.imgId;
             for (const image of model.data.images) {
                 if (image.id == idOfImage) {
@@ -18,7 +18,8 @@ function drawImages(id) {
 
 function drawDescription() {
     for (const item of model.data.items) {
-        if (item.id = this.id) {
+        if (item.id == this.id) {
+            console.log
             return item.description;
         }
     }
@@ -26,14 +27,14 @@ function drawDescription() {
 
 function drawName() {
     for (const item of model.data.items) {
-        if (item.id = this.id) {
+        if (item.id == this.id) {
             return item.name;
         }
     }
 }
 function drawLatinName() {
     for (const item of model.data.items) {
-        if (item.id = this.id) {
+        if (item.id == this.id) {
             return item.latinName;
         }
     }
