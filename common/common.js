@@ -29,7 +29,9 @@ function getUserName(){
     if (model.app.currentUser != 0){
         for (const user of model.data.users) {
             if (model.app.currentUser == user.id){
-                return `Design plug: you logged as ${user.name} 
+                return `
+                <img src = "${getUserPic(getPictureAvatarId())}" class = "imgAvatar" width = "100" height = "100">
+                <br>${user.name} <br>
                 <button onclick = "logout()">Logg ut</button> 
                 `
             }
@@ -50,6 +52,8 @@ function isLoggedIn() {
 
 function logout(){
     model.app.currentUser = 0; 
+    model.inputs.login.userName = '';
+    model.inputs.login.password = '';
     updateView();
 }
 

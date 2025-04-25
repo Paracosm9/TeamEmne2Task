@@ -6,13 +6,36 @@ function userAreaView(){
     `
 }
 
+
 function drawUserArea(){
     return /*HTML*/`
     <div class = "personalInfo" style = "border: 2px solid black; display: flex; flex-direction: column; width: 25%">
-        <img src = "common/images/userimages/default_user.png" width = "100" height = "100">
+        <img src = "${getPictureAvatarId() > 0 ? getUserPic(getPictureAvatarId()) : 'common/images/userimages/default_user.png'}" width = "100" height = "100">
         <button class = "btn" style = "width: 35%" onclick = "">Endre bildet</button>
         ${getUserNameInProfile()}
-        <button class = "btn" style = "width: 35%" onclick = "">Endre passord</button>
+        <br>
+        ${
+            model.inputs.userArea.pass == '' ? 
+            `<button class = "btn" style = "width: 35%" onclick = "changePassWordView(0)">Endre passord</button>`
+            : 
+            /*HTML*/`
+            Skriv nytt passord: <br>
+            <input type="text" id="newPassword" 
+            value = ""
+            name = "newPassword"
+            onchange = "model.inputs.userArea.pass = this.value"
+            >
+            <br>
+            Gjenta passord: <br> 
+        <input type="text" id="newPasswordRepeat" 
+        value = ""
+        name = "newPasswordRepeat"
+        onchange = "model.inputs.userArea.pass = this.value"
+            >
+            <button class = "btn" style = "width: 35%" onclick = "changePassWordView(1)">Lagre passord</button>
+            <button class = "btn" style = "width: 35%" onclick = "changePassWordView(2)">Avbryt</button>
+            ` 
+        }
         ${getAmountOfFindings() == 0 ? `Du har funnet ingenting enda`: `<h4>Du har funnet ${getAmountOfFindings()} funn!</h4> `}
     </div> 
     <div class = "usefulLinks">

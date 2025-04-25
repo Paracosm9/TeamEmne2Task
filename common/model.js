@@ -40,9 +40,7 @@ const model = {
             name: '',
             //added array of formed items; 
         },
-        // searchFilter: {
-            
-           
+
         // },
        //lang tilbake i loggen nice 
         // rewards: { 
@@ -60,7 +58,12 @@ const model = {
             name: '', 
             email: '', 
             pass: '', 
-    },
+        },
+        userArea : {
+            img: '',
+            pass: '',
+            repeatPass: ''
+        }
 },
     
     data : {
@@ -145,6 +148,7 @@ const model = {
             {id: 10, filePath: 'common/images/items/Vaccinium_uliginosum_fruit.jpg'},
             {id: 11, filePath: 'common/images/items/fluesopp_item.jpg'},
             {id: 12, filePath: 'common/images/userimages/default_user.png'},
+            {id: 13, filePath: 'common/images/userimages/not_default_userpic.png'},
         ],
         
         rewardImages: [
@@ -166,7 +170,7 @@ const model = {
             {itemId: 3, imgId: 11}
         ], 
         userPicImages: [
-            {userId: 1, imgId: 12}, 
+            {userId: 1, imgId: 13}, 
             {userId: 2, imgId: 12}, 
         ]
     }
