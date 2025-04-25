@@ -1,35 +1,23 @@
 function loginRegView() {
-  return `
-       <label for="username">Username</label>
-        <input id="username" onchange="model.inputs.login.username = this.value"><br>
-        <label for="password">Password</label>
-        <input id="password" onchange="model.inputs.login.password = this.value"><br>
-        <button onclick="login()">Login</button>
+  return isLoggedIn() ?  
+  /*HTML*/`
+  <h1>Du er logged inn</h1>
+  ` 
+  
+  
+  : /*HTML*/`
+      <div class = "textFields" style = "border: 2px solid gray">
+      ${!isUserCorrect() && (model.inputs.login.userName != '' || model.inputs.login.password != '') ? 
+        /*HTML*/`<div class = "message">
+               <h1 style = "color: violet" > Passord eller brukernavn er inkorrekt!
+                </div>
+        ` : ``}
+      <label for="username">Username</label>
+      <input id="username" onchange="model.inputs.login.userName = this.value"><br>
+      <label for="password">Password</label>
+      <input id="password" onchange="model.inputs.login.password = this.value"><br>
+      <button onclick="login()">Login</button>
+      <button onclick="regiserNewUser()">Register</button>
+      </div>
   `;
 }
-
-function login() {
-  const username = document.getElementById("username").value
-  const password = document.getElementById("password").value
-  const messageBox = document.getElementById("message")
-
-  if (username === "" || password === "") {
-    messageBox.innerHTML = "Fyll inn brukernavn og passord."
-  } else {
-    messageBox.innerHTML = "Logget inn som " + username
-  }
-}
-
-function register() {
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
-  const messageBox = document.getElementById("message")
-
-  if (username === "" || password === "") {
-    messageBox.innerHTML = "Fyll inn brukernavn og passord."
-  } else {
-    messageBox.innerHTML = "Registrert som " + username
-  }
-}
-
-updateView()

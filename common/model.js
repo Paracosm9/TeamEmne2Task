@@ -1,14 +1,11 @@
 const model = {
     
     app : {
-        currentUser: '',
-        currentPage: 'homePage', 
+        currentUser: 0,
+        currentPage: 'loginReg', 
         previousPage: '',
         currentItem: 0, 
         currentFinding: 0, 
-        // currentPage: 'catalog', 
-        // currentPage: 'itemPage', 
-        // currentPage: 'itemPage', 
 
         pages : {
             login: 'loginReg',
@@ -22,7 +19,8 @@ const model = {
             newlyRegistered: 'newlyRegistered',
             rewards: 'rewards',
             registerFinding: 'registerFinding',
-            thankYouAddedFind: 'thankYouAdded'
+            thankYouAddedFind: 'thankYouAdded',
+            registerUser: 'registerUser',
         }
     },
     
@@ -65,8 +63,8 @@ const model = {
     
     data : {
         users: [
-            {id: 1, name: 'Dag', email: 'Dag@example.com', pass: '*********', type: 'admin', registerDate: '2023-01-01'},
-            {id: 2, name: 'Linn', email: 'linn@example.com', pass: '*********', type: 'user', registerDate: '2023-02-15'}
+            {id: 1, name: 'Dag', email: 'Dag@example.com', pass: '12345', type: 'admin', registerDate: '2023-01-01'},
+            {id: 2, name: 'Linn', email: 'linn@example.com', pass: '54321', type: 'user', registerDate: '2023-02-15'}
         ],
         
         rewards: [
@@ -109,7 +107,7 @@ const model = {
             {id: 3, name: 'Plant'}
         ],
         
-        lookALikes: [
+        lookALikes: [ //Do we need this stuff at all? 
             {itemId: 1, looksLikeItemId: 3},
             {itemId: 3, looksLikeItemId: 4},
             {itemId: 3, looksLikeItemId: 4},

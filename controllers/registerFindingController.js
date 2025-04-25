@@ -88,8 +88,8 @@ function setFinding(locationIdTo) {
     let newFindingIndex = getNewId(model.data.findings);
     let newFinding = {
         id: newFindingIndex,
-        userId: 2, //change after
-        itemId: newFindingIndex, //also plug, change after
+        userId: model.app.currentUser, 
+        itemId: model.app.currentItem, //also plug, change after
         locationId: locationIdTo,
         dateFind: new Date().toISOString(),
         description: model.inputs.registerFinding.description,

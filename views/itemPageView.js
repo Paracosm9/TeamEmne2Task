@@ -1,6 +1,6 @@
 function itemPageView() {
 
-    let id = model.app.currentItem; //to change; should be changed by click or by page. 
+    let id = model.app.currentItem;
     console.log(id);
     return drawItem(id);
 }
