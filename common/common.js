@@ -29,9 +29,14 @@ function getUserName(){
     if (model.app.currentUser != 0){
         for (const user of model.data.users) {
             if (model.app.currentUser == user.id){
-                return `Design plug: you logged as ${user.name}`
+                return `Design plug: you logged as ${user.name} 
+                <button onclick = "logout()">Logg ut</button> 
+                `
             }
         }
+    }
+    if (model.app.currentPage != 'loginReg'){
+        return `<button onclick = "setPage(model.app.pages.login)">Logg inn</button> `
     }
 }
 
@@ -41,4 +46,22 @@ function goToPreviousPage(){
 
 function isLoggedIn() {
     return model.app.currentUser != 0; 
+}
+
+function logout(){
+    model.app.currentUser = 0; 
+    updateView();
+}
+
+
+function getUserNameInProfile(){
+    if (model.app.currentUser != 0){
+        for (const user of model.data.users) {
+            if (model.app.currentUser == user.id){
+                return user.name
+                
+            }
+        }
+    }
+    return '';
 }

@@ -22,11 +22,9 @@ function drawMain(){
     </p>
     </div>
     <div class = "buttonsDiv">
-    <button class = "btnOnMain" onclick = "setPage()">Kontakt oss</button>
     <button class = "btnOnMain" onclick = "setPage(model.app.pages.catalog)">Katalog</button>
     <button class = "btnOnMain" onclick = "setPage(model.app.pages.rewards)">Rewards</button>
-    <button class = "btnOnMain" onclick = "setPage()">Dine funn</button>
-    <button class = "btnOnMain" onclick = "setPage()">Bytt passord</button>
+    <button class = "btnOnMain" onclick = "setPage(model.app.pages.userArea)">Din siden</button>
     </div> 
 
     </div>

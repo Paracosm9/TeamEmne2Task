@@ -36,7 +36,12 @@
         else if (page === 'registerFinding') {
             currentPageView = registerFindingView();
         }
-  
+        else if (page === 'registerUser') {
+            currentPageView = registerUserView();
+        }
+        else if (page === 'userArea') {
+            currentPageView = userAreaView();
+        }
     // console.log(currentPageView);
     // <!--${headerView()} -->   
     document.getElementById('app').innerHTML = /*HTML*/`   
@@ -45,7 +50,7 @@
             ${model.app.previousPage == '' ? `` : `<button onclick = "goToPreviousPage()"><=</button>`}      
             ${getUserName() ?? ''}
             ${currentPageView}
-            <br>            
+        
             <h1 style = "color: red">PLUG FOR FOOTER</h1> 
         </div>
     `;

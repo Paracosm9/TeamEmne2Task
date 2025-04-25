@@ -1,9 +1,9 @@
 const model = {
     
     app : {
-        currentUser: 0,
-        currentPage: 'loginReg', 
+        currentPage: 'homePage', 
         previousPage: '',
+        currentUser: 0,
         currentItem: 0, 
         currentFinding: 0, 
 
@@ -21,6 +21,7 @@ const model = {
             registerFinding: 'registerFinding',
             thankYouAddedFind: 'thankYouAdded',
             registerUser: 'registerUser',
+            userArea: 'userArea',
         }
     },
     
@@ -52,12 +53,13 @@ const model = {
         registerFinding: {
             name: '',
             img: '',
-            // locationId: '', 
             locationName: '', 
             description: ''
         },
-        addLocationItemPage: {
-            locationId: ''  
+        registerUser: {
+            name: '', 
+            email: '', 
+            pass: '', 
     },
 },
     
@@ -142,6 +144,7 @@ const model = {
             {id: 9, filePath: 'common/images/findings/kant_find3.jpg'},
             {id: 10, filePath: 'common/images/items/Vaccinium_uliginosum_fruit.jpg'},
             {id: 11, filePath: 'common/images/items/fluesopp_item.jpg'},
+            {id: 12, filePath: 'common/images/userimages/default_user.png'},
         ],
         
         rewardImages: [
@@ -153,6 +156,7 @@ const model = {
             {findingId: 1, imgId: 7},
             {findingId: 2, imgId: 8},
             {findingId: 3, imgId: 9},
+            {findingId: 4, imgId: 7},
         ], 
 
         itemsImages: [
@@ -160,6 +164,10 @@ const model = {
             {itemId: 1, imgId: 5},
             {itemId: 2, imgId: 10},
             {itemId: 3, imgId: 11}
+        ], 
+        userPicImages: [
+            {userId: 1, imgId: 12}, 
+            {userId: 2, imgId: 12}, 
         ]
     }
 }
