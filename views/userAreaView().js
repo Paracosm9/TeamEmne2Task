@@ -13,26 +13,26 @@ function drawUserArea(){
         ${
             model.inputs.userArea.img == '' ? 
             /*HTML*/`
-            <img src = "${getPictureAvatarId() > 0 ? getUserPic(getPictureAvatarId()) : 'common/images/userimages/default_user.png'}" width = "100" height = "100">
-        <button class = "btn" style = "width: 35%" onclick = "changePicture(0)">Endre bildet</button>
+            <img src = "${getPictureAvatarId() > 0 ? getUserPic(getPictureAvatarId()) : 'common/images/userimages/default_user.png'}" class = "imgAvatar" width = "100" height = "100">
+        <button class = "btn" onclick = "changePicture(0)">Endre bildet</button>
         
         <br>
             ` : 
           /*HTML*/`
-            <img src = "${getPictureAvatarId() > 0 ? getUserPic(getPictureAvatarId()) : 'common/images/userimages/default_user.png'}" width = "100" height = "100">
+            <img src = "${getPictureAvatarId() > 0 ? getUserPic(getPictureAvatarId()) : 'common/images/userimages/default_user.png'}" class = "imgAvatar" width = "100" height = "100" >
             Skriv linken til ny avatar: <br>
             <input type="text" id="newAvatar" 
             value = ""
             name = "newAvatar"
             onchange = "model.inputs.userArea.img = this.value"
             >
-            <button class = "btn" style = "width: 35%" onclick = "changePicture(1)">Endre bildet</button>
+            <button class = "btn" onclick = "changePicture(1)">Endre bildet</button>
             `
         }
         ${getUserNameInProfile()}
         ${
             model.inputs.userArea.pass == '' ? 
-            `<button class = "btn" style = "width: 35%" onclick = "changePassWordView(0)">Endre passord</button>`
+            `<button class = "btn"  onclick = "changePassWordView(0)">Endre passord</button>`
             : 
             /*HTML*/`
             Skriv nytt passord: <br>
@@ -48,18 +48,20 @@ function drawUserArea(){
             name = "newPasswordRepeat"
             onchange = "model.inputs.userArea.pass = this.value"
             >
-            <button class = "btn" style = "width: 35%" onclick = "changePassWordView(1)">Lagre passord</button>
-            <button class = "btn" style = "width: 35%" onclick = "changePassWordView(2)">Avbryt</button>
+            <button class = "btn"  onclick = "changePassWordView(1)">Lagre passord</button>
+            <button class = "btn"  onclick = "changePassWordView(2)">Avbryt</button>
             ` 
         }
         ${getAmountOfFindings() == 0 ? `Du har funnet ingenting enda`: `<h4>Du har funnet ${getAmountOfFindings()} funn!</h4> `}
     </div> 
     <div class = "usefulLinks">
-    <button class = "btn" style = "width: 35%" onclick = "setPage(model.app.pages.rewards)">Gå til Rewards</button>
+    <button class = "btn"  onclick = "setPage(model.app.pages.rewards)">Gå til Rewards</button>
     </div>
-    <div class = "carousell" style = "border: 5px solid black; margin-top: 20px; width: 35%">
     <h4>Dine funn:</h4>
+    <div class = "carousel">
+    <div class = "carousel-inner">
     ${drawUserFindingsCarousell()}
+    </div>
     </div>
 
     <div class = "text" style = "border: 5px solid black; margin-top: 20px;">

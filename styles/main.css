@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Josefin Sans", sans-serif;
+    background-color: #f0fff4;
+    color: #111111;
+  }
+  
+  .container {
+    display: grid; /*to play with flex for tests...*/
+    
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    justify-items: center; 
+    min-height: 100vh;
+    padding: 20px;
+    gap: 20px; 
+    background-color: #f0fff4; 
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  input[type="text"] {
+    border: 1px solid #cccccc; 
+    border-radius: 3px; 
+    background: #ffffff; 
+    height: 20px;
+    color: black; 
+    font-family: "Josefin Sans", sans-serif;
+ }
+
+  button {
+    background-color: rgb(165, 194, 113);
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px; 
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    max-height: 35px;
+  }
+  
+  button:hover {
+    background-color: #45a049; 
+    transform: scale(1.05); 
+  }
+
+  
+  .carousel {
+    position: relative;
+    max-width: 600px; 
+    margin: 40px auto; 
+    overflow: hidden;
+    border-radius: 12px; 
+    background: rgb(165, 194, 113); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .carousel-inner {
+    display: flex;
+    flex-direction: row;
+    width: 300%; 
+    transition: transform 0.5s ease;
+  }
+  
+  .carousel-item {
+    flex: 0 0 100%; 
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .carousel-item img {
+    width: 600px; 
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px; 
+  }
+
+  .carousel-caption {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+  }
+
+
+  .divtext {
+    max-width: 800px; 
+    width: 100%;
+    text-align: center; 
+  }
+ 
+  .buttonsDiv {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .userInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%; 
+    max-width: 500px;
+    border-radius: 8px; 
+  }
+  
+  .imgAvatar {
+    border-radius: 50%;
+  }
+  .userInformation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .descriptImg {
+    border-radius: 55px; 
+    margin: 5px;
+  }
+
+  .itemCatalog{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; 
+    max-width: 500px;
+    text-align: center;
+  }
+
+  
+  

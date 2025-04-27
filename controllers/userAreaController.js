@@ -24,10 +24,12 @@ function drawUserFindingsCarousell() {
     }
     for (const finding of findingsWithImages) {
         let oneFinding = /*HTML*/`
-        <div class = "carouselElement" style = "border: 3px dashed green" onclick = "setFindingPage(model.app.pages.finding,${finding.id})">
-        <img src =${finding.imagePath} width = "100" height = "100"><br>
-        Date: ${finding.dateFind}<br>
+        <div class = "carousel-item" onclick = "setFindingPage(model.app.pages.finding,${finding.id})">
+        <img src =${finding.imagePath}>
+        <div class = "carousel-caption">
+        Date: ${finding.dateFind}
         Location: ${finding.location}
+        </div>
         </div>
         `;
         findingsHTML += oneFinding;
@@ -60,7 +62,6 @@ function changePassWordView(howToChange) {
     }
     else if (howToChange == 1) {
         if (document.getElementById("newPassword").value == document.getElementById("newPasswordRepeat").value) {
-            console.log("JUJUJU")
             changePassword();
             model.inputs.userArea.pass = '';
             model.inputs.userArea.repeatPass = '';

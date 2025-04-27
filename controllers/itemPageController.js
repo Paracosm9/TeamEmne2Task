@@ -8,7 +8,7 @@ function drawImages() {
             let idOfImage = item.imgId;
             for (const image of model.data.images) {
                 if (image.id == idOfImage) {
-                    html += `<img src ="${image.filePath}" width = "100" height = "100">`;
+                    html += `<img src ="${image.filePath}" class = "descriptImg" width = "400" height = "400">`;
                 }
             }
         }
@@ -87,10 +87,13 @@ function drawFindingsCarousell() {
     }
     for (const finding of findingsWithImages) {
         let oneFinding = /*HTML*/`
-        <div class = "carouselElement" style = "border: 3px dashed green" onclick = "setFindingPage(model.app.pages.finding,${finding.id})">
-        <img src =${finding.imagePath} width = "100" height = "100"><br>
+        <div class = "carousel-item" onclick = "setFindingPage(model.app.pages.finding,${finding.id})">
+        <img src =${finding.imagePath}>
+        <div class="carousel-caption">
         Date: ${finding.dateFind}<br>
         Location: ${finding.location}
+        </div>
+     
         </div>
         `; 
         findingsHTML += oneFinding; 

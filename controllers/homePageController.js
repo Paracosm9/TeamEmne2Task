@@ -29,9 +29,10 @@ function createAndShowItems() {
     for (const element of imageWithName) {
         console.log(element.itemId + " - itemId")
         let oneItem = /*HTML*/`
-        <div class = "carouselElement" style = "border: 3px dashed green" onclick = "setItemPage(model.app.pages.item,${element.itemId})">
-        <img src =${element.img} width = "100" height = "100"><br>
-        Navn: ${element.itemName}<br>
+        <div class = "carousel-item"  onclick = "setItemPage(model.app.pages.item,${element.itemId})">
+        <img src =${element.img}>
+       
+  <div class="carousel-caption">Navn: ${element.itemName}</div>
         </div>
         `;
         html += oneItem;

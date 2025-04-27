@@ -7,23 +7,25 @@ function itemPageView() {
 
 function drawItem(id) {
     return /*HTML*/`
-    <div class = "carousell" style = "border: 5px solid black; margin: 20px">
+    <div class = "descriptImg">
+   
     ${drawImages(id)}
+
     </div>
-    <div class = "descriptName" style = "border: 5px solid black; margin: 20px">
+    <div class = "descriptName">
     ${drawName()}
     </div> 
-    <div class = "descriptLatinName" style = "border: 5px solid black; margin: 20px">
+    <div class = "descriptLatinName">
     ${drawLatinName()}
     </div> 
-    <div class = "descript" style = "border: 5px solid black; margin: 20px">
+    <div class = "descript">
     ${drawDescription()}
     </div> 
-    <div class = "amountOfFoundings" style = "border: 5px solid black; margin: 20px">
+    <div class = "amountOfFoundings">
     ${getAmountOfFoundings() == 0 ? 'Var ikke funnet enda' : 'Var funnet ' + getAmountOfFoundings() + ' ganger'}
     </div> 
     ${getAmountOfFoundings() == 0 ? '' :
-    `<div class = "placesFounds" style = "border: 5px solid black; margin: 20px">
+    `<div class = "placesFounds">
     Dette ble funnet her: ${getPlacesWereFound()}
     </div> `}
     <div class = "buttons">
@@ -34,9 +36,11 @@ function drawItem(id) {
 }
 function drawGalleryOfFindings() {
     return /*HTML*/`
-    <div class = "carousell" style = "border: 5px solid black; margin: 20px; transform: scale(0.5); transform-origin: top left;">
-    <h1>Plug - Carousel of findings :3</h1>
+    <h1>Funn galleri</h1>
+    <div class = "carousel">
+    <div class = "carousel-inner">
     ${drawFindingsCarousell()}
+    </div> 
     </div> 
     `;
 }

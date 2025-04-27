@@ -47,8 +47,10 @@
     document.getElementById('app').innerHTML = /*HTML*/`   
         <div class="container">
             <h1 style = "color: red">PLUG FOR HEADER</h1> 
-            ${model.app.previousPage == '' ? `` : `<button onclick = "goToPreviousPage()"><=</button>`}      
+            <div class = "userInfo">
+            ${model.app.previousPage == '' ? `` : `<button onclick = "goToPreviousPage()">⟵</button>`}
             ${getUserName() ?? ''}
+            </div>
             ${currentPageView}
         
             <h1 style = "color: red">PLUG FOR FOOTER</h1> 
