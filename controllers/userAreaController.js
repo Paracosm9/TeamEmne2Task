@@ -55,7 +55,6 @@ function getUserPic(imgId) {
 function changePassWordView(howToChange) {
     console.log(howToChange);
     if (howToChange == 0) {
-        console.log("aaaaa");
         model.inputs.userArea.pass = '1';
         updateView();
     }
@@ -86,4 +85,46 @@ function changePassword() {
             break;
         }
     }
+}
+
+function changePicture(setting){
+    if(setting == 0){
+        model.inputs.userArea.img = '1'; 
+        updateView();
+    }
+    else if (setting == 1){
+        if (isValidUrl(model.inputs.userArea.img)){
+            setNewAvatar(); 
+            model.inputs.userArea.img = ''; 
+            updateView();
+        }
+        else {
+            document.getElementById("newAvatar").style.border = "2px solid red";
+        }
+    }
+}
+
+function setNewAvatar(){
+    let newImgId = getNewImgId();
+    model.data.images.push({
+        id: newImgId, 
+        filePath: model.inputs.userArea.img
+    }); 
+
+    for (const userImage of model.data.userPicImages) {
+        if(model.app.currentUser == userImage.userId){
+            userImage.imgId = newImgId; 
+        }
+    }
+
+}
+
+function getNewImgId(){
+    let newId = 0; 
+    for (const img of model.data.images) {
+        if(img.id > newId){
+            newId = img.id; 
+        }
+    }
+    return newId + 1; 
 }

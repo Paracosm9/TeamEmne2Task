@@ -84,10 +84,12 @@ function drawCatalog() {
     for (const item of items) {
         let oneItemHTML = /*HTML*/`
             <div class = "itemCatalog" style = "border: 5px solid black; margin: 20px" onclick = "setItemPage(model.app.pages.item,${item.id})">
+            <img src = ${item.oneImage} height = "150" width = "150">
+            <br>
              Name: ${item.name}<br>
              Description: ${item.description}<br>
              Latin name: ${item.latinName}<br>
-             ImaginaryImage (would be changed): ${item.oneImage}<br>
+            
              Type: ${item.type}<br>
              Amount of places were found: ${item.amountOfPlaces}<br>
              PLUG Places were found: ${item.locations.length > 0 ? item.locations.toString() : "Ingen..."}<br>

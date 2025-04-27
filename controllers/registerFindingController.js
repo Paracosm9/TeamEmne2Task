@@ -31,16 +31,7 @@ function areAllFieldsNotEmpty() {
     return allFieldsAreOK;
 }
 
-function isValidUrl(urlToCheck) {
-    try {
-        console.log("Link is valid.")
-        return Boolean(new URL(urlToCheck));
-    }
-    catch (error) {
-        console.log("Link is not valid.")
-        return false;
-    }
-}
+
 function updatePageWithImg() {
     model.inputs.registerFinding.img = model.inputs.registerFinding.img.replace(".jpeg", ".jpg")
     updateView();

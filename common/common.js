@@ -69,3 +69,23 @@ function getUserNameInProfile(){
     }
     return '';
 }
+
+function isAdmin(){
+    for (const user of model.data.users) {
+        if(user.id == model.app.currentUser){
+            return user.type == 'admin';
+        }
+    }
+}
+
+
+function isValidUrl(urlToCheck) {
+    try {
+        console.log("Link is valid.")
+        return Boolean(new URL(urlToCheck));
+    }
+    catch (error) {
+        console.log("Link is not valid.")
+        return false;
+    }
+}

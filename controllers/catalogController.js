@@ -76,22 +76,21 @@ function getAmountOfPlaces(itemId) {
 }
 
 function getImageForItem(itemId) {
-    let findings = model.data.findings;
-    let findingImages = model.data.findingImages;
+    let items = model.data.items;
+    let itemsImages = model.data.itemsImages;
     let images = model.data.images; 
-    let findingId = 0;
     let imageId = 0; //change to array if we need more. 
     let imaginaryImg = ''; 
-    for (const finding of findings) {
-        if (finding.itemId == itemId) {
-            findingId = finding.id; 
+    for (const item of items) {
+        if (items.id == itemId) {
+            itemId = item.id; 
             break; //change if we need more images. For future. 
         }
     }
    
-    for (const findIdImgId of findingImages) {
-        if (findIdImgId.findingId == findingId) {
-            imageId = findIdImgId.imgId;
+    for (const itemImgId of itemsImages) {
+        if (itemImgId.itemId == itemId) {
+            imageId = itemImgId.imgId;
             break; //change if we need more images. For future. 
         }
     }

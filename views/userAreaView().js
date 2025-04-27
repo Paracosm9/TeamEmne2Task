@@ -10,10 +10,26 @@ function userAreaView(){
 function drawUserArea(){
     return /*HTML*/`
     <div class = "personalInfo" style = "border: 2px solid black; display: flex; flex-direction: column; width: 25%">
-        <img src = "${getPictureAvatarId() > 0 ? getUserPic(getPictureAvatarId()) : 'common/images/userimages/default_user.png'}" width = "100" height = "100">
-        <button class = "btn" style = "width: 35%" onclick = "">Endre bildet</button>
-        ${getUserNameInProfile()}
+        ${
+            model.inputs.userArea.img == '' ? 
+            /*HTML*/`
+            <img src = "${getPictureAvatarId() > 0 ? getUserPic(getPictureAvatarId()) : 'common/images/userimages/default_user.png'}" width = "100" height = "100">
+        <button class = "btn" style = "width: 35%" onclick = "changePicture(0)">Endre bildet</button>
+        
         <br>
+            ` : 
+          /*HTML*/`
+            <img src = "${getPictureAvatarId() > 0 ? getUserPic(getPictureAvatarId()) : 'common/images/userimages/default_user.png'}" width = "100" height = "100">
+            Skriv linken til ny avatar: <br>
+            <input type="text" id="newAvatar" 
+            value = ""
+            name = "newAvatar"
+            onchange = "model.inputs.userArea.img = this.value"
+            >
+            <button class = "btn" style = "width: 35%" onclick = "changePicture(1)">Endre bildet</button>
+            `
+        }
+        ${getUserNameInProfile()}
         ${
             model.inputs.userArea.pass == '' ? 
             `<button class = "btn" style = "width: 35%" onclick = "changePassWordView(0)">Endre passord</button>`
@@ -28,9 +44,9 @@ function drawUserArea(){
             <br>
             Gjenta passord: <br> 
         <input type="text" id="newPasswordRepeat" 
-        value = ""
-        name = "newPasswordRepeat"
-        onchange = "model.inputs.userArea.pass = this.value"
+            value = ""
+            name = "newPasswordRepeat"
+            onchange = "model.inputs.userArea.pass = this.value"
             >
             <button class = "btn" style = "width: 35%" onclick = "changePassWordView(1)">Lagre passord</button>
             <button class = "btn" style = "width: 35%" onclick = "changePassWordView(2)">Avbryt</button>
@@ -54,5 +70,9 @@ function drawUserArea(){
     <br>
     <button onclick = "">Send</button>
     </div>
+
+    ${ isAdmin() ? /*HTML*/`
+        <button onclick = "setPage(model.app.pages.adminPage)">Gå til adminsiden</button>
+        `: ``}
     `;
 }
