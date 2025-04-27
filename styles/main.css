@@ -13,13 +13,14 @@
   .container {
     display: grid; /*to play with flex for tests...*/
     
-    grid-template-rows: auto;
+    grid-template-rows: 150px auto;
     grid-template-columns: auto;
     justify-items: center; 
     min-height: 100vh;
     padding: 20px;
     gap: 20px; 
     background-color: #f0fff4; 
+    margin-top: 5px;
     box-sizing: border-box;
   }
 
@@ -111,6 +112,8 @@
   .userInfo {
     display: flex;
     flex-direction: row;
+    position: absolute; 
+    top: 60px; 
     align-items: flex-start;
     justify-content: space-between;
     width: 100%; 
