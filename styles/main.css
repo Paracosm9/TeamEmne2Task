@@ -25,6 +25,7 @@ body {
     margin-top: 5px;
     box-sizing: border-box;
     text-align: center;
+    font-size: x-large;
 }
 
 img {
@@ -33,13 +34,15 @@ img {
     display: block;
 }
 
-input, select {
+input,
+select {
     border: 1px solid #cccccc;
     border-radius: 5px;
     background: #ffffff;
     height: 28px;
     color: black;
     font-family: "Josefin Sans", sans-serif;
+    font-size: x-large;
 }
 
 button {
@@ -65,13 +68,14 @@ button:hover {
 .carousel {
     position: relative;
     max-width: 600px;
-    margin: 40px auto;
+    margin: 15px auto;
     overflow: hidden;
     border-radius: 12px;
     background: rgb(165, 194, 113);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: row;
+    grid-area: carousel;
 }
 
 .carousel-inner {
@@ -188,43 +192,126 @@ button:hover {
 .checkers {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
+    align-items: flex-start;
     gap: 5px;
+    margin-top: 20px;
 }
 
 .checker {
     display: flex;
     flex-direction: row;
-    align-items: center; 
-    gap: 8px; 
+    justify-content: start;
+    align-items: left;
+    gap: 8px;
 }
 
+.catalogSearch {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+    gap: 8px;
+    margin-top: 20px;
+
+}
+
+.catalogSearchItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.catalogSearchItem label {
+    min-width: 100px; 
+    text-align: right;
+}
 textarea {
     width: 100%;
-    max-width: 800px; 
-    min-height: 120px; 
-    padding: 10px 15px; 
-    font-size: 16px;
-    font-family: "Josefin Sans", sans-serif;
-    border: 1px solid #cccccc;
-    border-radius: 8px;
+    max-width: 800px;
+    min-height: 120px;  border-radius: 55px;
+    margin: 5px;
     background-color: #ffffff;
-    resize: vertical; 
-    box-sizing: border-box; 
+    resize: vertical;
+    /*for can not be resized by width or smth*/
+    box-sizing: border-box;
     color: #333333;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  textarea:focus {
+}
+
+textarea:focus {
     border-color: rgb(165, 194, 113);
     box-shadow: 0 0 5px rgba(165, 194, 113, 0.5);
     outline: none;
-  }
+}
 
-  input:focus {
+input:focus {
     border-color: rgb(165, 194, 113);
     box-shadow: 0 0 5px rgba(165, 194, 113, 0.5);
     outline: none;
-  }
+}
 
- 
+.personalInfo {
+    grid-area: pInfo;
+    margin: 15px auto;
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgba(165, 194, 113); */
+    border: 1px solid rgb(165, 194, 113);
+    ;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+}
+
+.textAreaUser {
+    grid-area: pUser;
+}
+
+.usefulLinks {
+    grid-area: pLinks;
+    width: 70%;
+    margin: 15px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.pUserText {
+    grid-area: pTxt
+}
+
+
+.personalArea {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 25% 25% 25% 25%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    grid-template-areas:
+        "pInfo pInfo carousel carousel"
+        "pLinks pLinks pTxt pTxt"
+        ". . pUser pUser"
+    ;
+}
+
+.itemPageDiv, .findingsPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+} 
+
+.findingsPage img{
+    border-radius: 55px;
+    margin: 5px;
+    box-sizing: border-box;
+    border: 5px solid #cccccc;
+}

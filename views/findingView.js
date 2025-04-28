@@ -6,22 +6,26 @@ function findingView() {
 
 function drawFinding(id) {
     return /*HTML*/`
-    <div class = "img" style = "border: 5px solid black; margin: 20px">
-    ${getFindingImageHTML(id)}
-    ${getFindingDateHTML()}
-    </div>
+    <div class = "findingsPage">
+        <div class = "imgFinding">
+            ${getFindingImageHTML(id)}
+            ${getFindingDateHTML()}
+        </div>
 
-    <div class = "descriptName" style = "border: 5px solid black; margin: 20px">
+    <div class = "descriptName">
     ${getUserNameHTML()}
     </div> 
     
-    <div class = "descript" style = "border: 5px solid black; margin: 20px">
+    <div class = "descript">
     ${getDescriptionHTML()}
+    <br>
+    ${getFindingPlaceHTML()}
     </div> 
 
   
     <div class = "buttons">
     <button class = "buttonOnItem" onclick = "setItemPage(model.app.pages.item, ${getItemId(id)})">Tilbake til item</button>
+    </div>
     </div>
     `;
 }

@@ -1,14 +1,25 @@
-let id = 0;
+
 
 function drawImages() {
-    this.id = model.app.currentItem;
+
     let html = ``;
     for (const item of model.data.itemsImages) {
-        if (item.itemId == this.id) {
+        if (item.itemId == model.app.currentItem) {
             let idOfImage = item.imgId;
             for (const image of model.data.images) {
                 if (image.id == idOfImage) {
-                    html += `<img src ="${image.filePath}" class = "descriptImg" width = "400" height = "400">`;
+                    html += `<img src ="${image.filePath}" class = "descriptImg" width = "400" height = "400"> 
+                    <br>
+                    ${isAdmin() && model.inputs.itemChange.img == '' ? /*HTML*/`<button onclick = "editItemImage(${image.id})">Edit image</button><br>` : ``}
+                    ${isAdmin() && model.inputs.itemChange.img != '' ? /*HTML*/`
+                        Skriv linken til ny img: <br>
+                    <input type="text" id="newItemImage" 
+                    value = ""
+                    name = "newItemImage"
+                    onchange = "model.inputs.itemChange.img = this.value"
+                    >
+                    <button onclick = "saveItemImage(${image.id})">Save image</button>` : ``}
+                    `;
                 }
             }
         }
@@ -18,7 +29,7 @@ function drawImages() {
 
 function drawDescription() {
     for (const item of model.data.items) {
-        if (item.id == this.id) {
+        if (item.id == model.app.currentItem) {
             console.log
             return item.description;
         }
@@ -27,14 +38,14 @@ function drawDescription() {
 
 function drawName() {
     for (const item of model.data.items) {
-        if (item.id == this.id) {
+        if (item.id == model.app.currentItem) {
             return item.name;
         }
     }
 }
 function drawLatinName() {
     for (const item of model.data.items) {
-        if (item.id == this.id) {
+        if (item.id == model.app.currentItem) {
             return item.latinName;
         }
     }
@@ -43,7 +54,7 @@ function drawLatinName() {
 function getAmountOfFoundings() {
     let amountOfFindings = 0;
     for (const finding of model.data.findings) {
-        if (finding.itemId == this.id && finding.acceptedToBePublished) {
+        if (finding.itemId ==  model.app.currentItem && finding.acceptedToBePublished) {
             amountOfFindings++;
         }
     }
@@ -54,12 +65,12 @@ function getPlacesWereFound() {
     let locations = [];
     let htmlPlaces = `<ul>`;
     for (const findings of model.data.findings) {
-        if (findings.itemId == this.id && findings.acceptedToBePublished && !(locations.includes(findings.locationId))) {
+        if (findings.itemId == model.app.currentItem && findings.acceptedToBePublished && !(locations.includes(findings.locationId))) {
             locations.push(findings.locationId);
         }
     }
     for (const location of locations) {
-        console.log(location + " - this is location from findings");
+
         for (const locationInData of model.data.location) {
             if (location == locationInData.id) {
                 htmlPlaces += `<li>${locationInData.name}</li>`;
@@ -74,7 +85,7 @@ function drawFindingsCarousell() {
     let findingsWithImages = [];
     let findingsHTML = ``;
     for (const finding of model.data.findings) {
-        if (finding.acceptedToBePublished && finding.itemId == this.id) {
+        if (finding.acceptedToBePublished && finding.itemId == model.app.currentItem) {
             findingsWithImages.push({
                 id: finding.id,
                 location: getLocationName(finding.locationId),
@@ -117,4 +128,65 @@ function getLocationName(idOfLocation){
             return location.name;
         }
     }
+}
+
+function setNewName(newName, idOfItem){
+    for (const item of model.data.items) {
+        if(item.id == idOfItem){
+            item.name = newName;
+            return; 
+        }
+    }
+}
+
+function setNewLatName(newLatName, idOfItem){
+    for (const item of model.data.items) {
+        if(item.id == idOfItem){
+            item.latinName = newLatName;
+            return; 
+        }
+    }
+}
+
+function setNewDescription(newDescription, idOfItem){
+    for (const item of model.data.items) {
+        if(item.id == idOfItem){
+            item.description = newDescription;
+            return; 
+        }
+    }
+}
+
+function editDescription(itemId){
+    model.inputs.itemChange.id = itemId; 
+    updateView();
+}
+
+function saveDescription(){
+    model.inputs.itemChange.id = 0; 
+    updateView();
+}
+
+function editItemImage(imgId){
+    model.inputs.itemChange.img = getImagePathForAdmin(imgId); 
+    updateView();
+    
+}
+
+function getImagePathForAdmin(imgId){
+    for (const img of model.data.images) {
+        if (imgId == img.id){
+            return img.filePath; 
+        }
+    }
+}
+
+function saveItemImage(imgId){
+    for (const img of model.data.images) {
+        if (imgId == img.id){
+            img.filePath = model.inputs.itemChange.img; 
+        }
+    } 
+    model.inputs.itemChange.img = ''; 
+    updateView();
 }

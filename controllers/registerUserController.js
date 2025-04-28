@@ -55,5 +55,9 @@ function registerNewUserAndReturnHisId(){
         type: 'user',
         registerDate: new Date().toISOString()
     });
+    model.data.userPicImages.push({
+        userId: newId, 
+        imgId: 12 //default img for new user; 
+    }); 
     return newId;
 }   

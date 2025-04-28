@@ -27,8 +27,8 @@ function drawUserFindingsCarousell() {
         <div class = "carousel-item" onclick = "setFindingPage(model.app.pages.finding,${finding.id})">
         <img src =${finding.imagePath}>
         <div class = "carousel-caption">
-        Date: ${finding.dateFind}
-        Location: ${finding.location}
+        Date: ${finding.dateFind}<br>
+        Location: ${finding.location} 
         </div>
         </div>
         `;
@@ -102,6 +102,10 @@ function changePicture(setting){
         else {
             document.getElementById("newAvatar").style.border = "2px solid red";
         }
+    }
+    else if (setting == 2) {
+        model.inputs.userArea.img = ''
+        updateView();
     }
 }
 

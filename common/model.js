@@ -63,7 +63,14 @@ const model = {
             img: '',
             pass: '',
             repeatPass: ''
-        }
+        }, 
+        itemChange: {
+            id: 0, 
+            name: '', 
+            img: '',
+            latinName: '',
+            description: ''
+        },
 },
     
     data : {

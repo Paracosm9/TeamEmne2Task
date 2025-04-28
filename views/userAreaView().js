@@ -7,7 +7,8 @@ function userAreaView(){
 
 function drawUserArea(){
     return /*HTML*/`
-    <div class = "personalInfo" style = "border: 2px solid black; display: flex; flex-direction: column; width: 25%">
+    <div class = "personalArea">
+    <div class = "personalInfo">
         ${
             model.inputs.userArea.img == '' ? 
             /*HTML*/`
@@ -25,9 +26,11 @@ function drawUserArea(){
             onchange = "model.inputs.userArea.img = this.value"
             >
             <button class = "btn" onclick = "changePicture(1)">Endre bildet</button>
+            <button class = "btn" onclick = "changePicture(2)">Avbryt</button>
             `
         }
         ${getUserNameInProfile()}
+        <br>
         ${
             model.inputs.userArea.pass == '' ? 
             `<button class = "btn"  onclick = "changePassWordView(0)">Endre passord</button>`
@@ -53,16 +56,21 @@ function drawUserArea(){
         ${getAmountOfFindings() == 0 ? `Du har funnet ingenting enda`: `<h4>Du har funnet ${getAmountOfFindings()} funn!</h4> `}
     </div> 
     <div class = "usefulLinks">
-    <button class = "btn"  onclick = "setPage(model.app.pages.rewards)">Gå til Rewards</button>
+        <button class = "btn"  onclick = "setPage(model.app.pages.rewards)">Gå til Rewards</button>
+        ${ isAdmin() ? /*HTML*/`
+            <button onclick = "setPage(model.app.pages.adminPage)">Gå til adminsiden</button>
+            `: ``}   
     </div>
-    <h4>Dine funn:</h4>
+    <div class = "pUserText">
+        <h4>Dine funn</h4>
+    </div>
     <div class = "carousel">
-    <div class = "carousel-inner">
-    ${drawUserFindingsCarousell()}
-    </div>
+        <div class = "carousel-inner">
+            ${drawUserFindingsCarousell()}
+        </div>
     </div>
 
-    <div class = "text" style = "border: 5px solid black; margin-top: 20px;">
+    <div class = "textAreaUser">
     <h4>Gi oss gjerne beskjed!</h4>
     <textarea class = "textarea" id="feedbackform" 
     name="feedbackform">
@@ -71,8 +79,8 @@ function drawUserArea(){
     <button onclick = "">Send</button>
     </div>
 
-    ${ isAdmin() ? /*HTML*/`
-        <button onclick = "setPage(model.app.pages.adminPage)">Gå til adminsiden</button>
-        `: ``}
+    
+    </div>
+     
     `;
 }

@@ -16,41 +16,41 @@ function drawCatalogView() {
 
 function drawSorting() {
     let sorting = /*HTML*/`
-     <div id = "sortdiv">
-    <label for="sorting">Choose a sort type:</label>                               
+     <div id = "sortdiv">                           
         <select class = "selection" 
         name="sorting" 
         id="selectCatalog" 
         onchange = "model.inputs.catalog.sort = this.value,  getArrayOfItems()"
         >
-            <option value="" disabled ${model.inputs.catalog.sort == '' ? "selected" : ""} >Select sort type</option>
+            <option value="" disabled ${model.inputs.catalog.sort == '' ? "selected" : ""} >Velg sorteringstype</option>
             <option value="artsnavn" ${model.inputs.catalog.sort == 'artsnavn' ? "selected" : ""}>Artsnavn (A-Å)</option>
             <option value="antall" ${model.inputs.catalog.sort == 'antall' ? "selected" : ""} >Antall registring</option>
         </select> 
-                <br><br>
-                <label for="itemName">Artsnavn</label>
-                <input type="text" id="itemName" 
-                    value="${model.inputs.catalog.name}" 
-                    name="itemNameText" 
-                    onchange = "model.inputs.catalog.name = this.value, getArrayOfItems()"
-                    ${model.inputs.catalog.name == '' ? "" : "autofocus"} 
-                    ><br>
+                <div class = "catalogSearch">
+                    <div class = "catalogSearchItem">
+                        <label for="itemName">Artsnavn:</label>
+                         <input type="text" id="itemName" 
+                            value="${model.inputs.catalog.name}" 
+                              name="itemNameText" 
+                            onchange = "model.inputs.catalog.name = this.value, getArrayOfItems()"
+                            ${model.inputs.catalog.name == '' ? "" : "autofocus"} 
+                    >
 
-                <label for="itemPlace">Sted &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; </label>
-                <input type="text" id="itemPlace" 
-                value = "${model.inputs.catalog.location}"
-                name="itemPlaceText"
-                onchange = "model.inputs.catalog.location = this.value, getArrayOfItems()"
-                ${model.inputs.catalog.location == '' ? "" : "autofocus"}
-                >
-                <br>
-                <br>
-                <label for="">Valg type:</label>
-                <br>
+                </div>
+                    <div class = "catalogSearchItem">
+                        <label for="itemPlace">Sted:</label>
+                        <input type="text" id="itemPlace" 
+                        value = "${model.inputs.catalog.location}"
+                        name="itemPlaceText"
+                        onchange = "model.inputs.catalog.location = this.value, getArrayOfItems()"
+                        ${model.inputs.catalog.location == '' ? "" : "autofocus"}
+                        >
+                    </div>
+                </div>
 
                 <div class = "checkers">
+                <label for="">Valg type:</label>
                 <div class = "checker">
-                
                 <input type="checkbox" 
                 id="edible" 
                 name="eat" 
@@ -97,7 +97,9 @@ function drawCatalog() {
         let oneItemHTML = /*HTML*/`
             <div class = "itemCatalog" onclick = "setItemPage(model.app.pages.item,${item.id})">
             <img src = ${item.oneImage} class = "descriptImg" height = "150" width = "150">
-            <strong> Name: </strong> ${item.name}<br>
+            <strong> Name: </strong> ${item.name}
+           
+            <br>
              Description: ${item.description}<br>
              Latin name: ${item.latinName}<br>
             
@@ -106,6 +108,7 @@ function drawCatalog() {
              Places were found: ${item.locations.length > 0 ? item.locations.toString() : "Ingen..."}<br>
             
             </div>
+            
         `;
         catalogHtml += oneItemHTML;
     }

@@ -14,16 +14,24 @@ function getFindingImageHTML(id){
             }
         }
     }
-    return `<img src ="${imgPath}" width = "100" height = "100">`;;
+    return `<img src ="${imgPath}" height = "500px" width = "500px">`;
 }
 
 function getUserNameHTML() {
-    return /*HTML*/`Plug for username. Some cool username`;
+    for (const finding of model.data.findings) {
+        if(this.findId == finding.id){
+            for (const user of model.data.users) {
+                if(finding.userId == user.id){
+                    return `Ble funnet av ${user.name}`
+                }
+            }
+        }
+    }
 }
 function getDescriptionHTML() {
     for (const finding of model.data.findings) {
         if(finding.id == this.findId){
-            return finding.description;
+            return `Kommentar: ${finding.description}`
         }
     }
 }
@@ -31,6 +39,18 @@ function getFindingDateHTML() {
     for (const finding of model.data.findings) {
         if(finding.id == this.findId){
             return finding.dateFind;
+        }
+    }
+}
+
+function getFindingPlaceHTML(){
+    for (const finding of model.data.findings) {
+        if(finding.id == this.findId){
+            for (const location of model.data.location) {
+                if (location.id == finding.locationId){
+                    return `Var funnet i ${location.name}`
+                }
+            }
         }
     }
 }
