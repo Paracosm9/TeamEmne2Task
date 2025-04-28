@@ -170,8 +170,11 @@ button:hover {
     background-color: rgb(165, 194, 113);
 }
 
-.footer>u:hover {
+.footer>u:hover, .sitemap>u:hover {
     cursor: pointer;
+}
+.sitemap {
+    text-align: left;
 }
 
 .textFields,
