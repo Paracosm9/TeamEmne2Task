@@ -10,7 +10,7 @@ function drawItem(id) {
     <div class = "descriptImg">
    
     ${drawImages(id)}
-
+    ${isAdmin() ? `<button onclick = "editItem()">Edit image</button>` : ``}
     </div>
     <div class = "descriptName">
     ${drawName()}
@@ -28,6 +28,7 @@ function drawItem(id) {
     `<div class = "placesFounds">
     Dette ble funnet her: ${getPlacesWereFound()}
     </div> `}
+    ${isAdmin() ? `<button onclick = "editDescription()">Edit description</button>` : ``}
     <div class = "buttons">
     <button class = "buttonOnItem" onclick = "setPage(model.app.pages.registerFinding)">Jeg har funnet dette, del hvor</button>
     </div>

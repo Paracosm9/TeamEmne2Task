@@ -80,8 +80,6 @@ function drawFindingsCarousell() {
                 location: getLocationName(finding.locationId),
                 dateFind: finding.dateFind,
                 imagePath: getImagePath(finding.id)
-                //userId to add? 
-
             }); 
         }
     }

@@ -6,8 +6,10 @@ function catalogView() {
 function drawCatalogView() {
     let divApp = ``;
     divApp = /*HTML*/`
+    <div class = "catalog">
     ${drawSorting()}
     ${drawCatalog()}
+    </div>
     `;
     return divApp;
 }
@@ -97,7 +99,6 @@ function drawCatalog() {
         `;
         catalogHtml += oneItemHTML;
     }
-
     return catalogHtml;
 }
 

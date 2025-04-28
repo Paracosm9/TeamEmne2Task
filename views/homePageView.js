@@ -4,13 +4,13 @@ function homePageView() {
 
 function drawMain() {
     let html = /*HTML*/`
-    <h1>Hva kan du finne i naturen?</h1>
     <div class = "mainPageDiv">
-    <div class = "carousel">
-    <div class = "carousel-inner">
-    ${createAndShowItems()}
-    </div>
-    </div>
+        <h1>Hva kan du finne i naturen?</h1>
+             <div class = "carousel">
+                <div class = "carousel-inner">
+                    ${createAndShowItems()}
+                </div>
+            </div>
     <div class = "divtext">
     <h2>Er det lett eller vanskelig å finne mat i norsk natur?</h2>
     <p>Livet i naturen i Norge kan virke romantisk, men når det gjelder å finne mat – er det ikke alltid så enkelt. 
@@ -23,12 +23,6 @@ function drawMain() {
     Vi håper at nettstedet vårt kan gjøre veien litt enklere – og tryggere.
     </p>
     </div>
-    <div class = "buttonsDiv">
-    <button class = "btnOnMain" onclick = "setPage(model.app.pages.catalog)">Katalog</button>
-    <button class = "btnOnMain" onclick = "setPage(model.app.pages.rewards)">Rewards</button>
-    <button class = "btnOnMain" onclick = "setPage(model.app.pages.userArea)">Din siden</button>
-    </div> 
-
     </div>
     `;
     return html;

@@ -22,6 +22,7 @@ const model = {
             thankYouAddedFind: 'thankYouAdded',
             registerUser: 'registerUser',
             userArea: 'userArea',
+            siteMap: 'siteMap',
         }
     },
     

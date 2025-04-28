@@ -46,14 +46,13 @@
     // <!--${headerView()} -->   
     document.getElementById('app').innerHTML = /*HTML*/`   
         <div class="container">
-            <h1 style = "color: red">PLUG FOR HEADER</h1> 
+            <h1 style = "color: red; max-height: 50px;">PLUG FOR HEADER</h1> 
             <div class = "userInfo">
             ${model.app.previousPage == '' ? `` : `<button onclick = "goToPreviousPage()">⟵</button>`}
             ${getUserName() ?? ''}
             </div>
             ${currentPageView}
-        
-            <h1 style = "color: red">PLUG FOR FOOTER</h1> 
+            ${footerView()}
         </div>
     `;
 }
