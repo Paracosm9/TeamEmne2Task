@@ -33,7 +33,7 @@ function getUserName(){
             if (model.app.currentUser == user.id){
                 return `       
                 <div class = "userInformation">
-                <img src = "${getUserPic(getPictureAvatarId())}" class = "imgAvatar" width = "75" height = "75">
+                <img src = "${getUserPic(getPictureAvatarId())}" class = "imgAvatar" width = "75" height = "75" onclick ="setPage(model.app.pages.userArea)">
                 <br>${user.name} <br>
                 </div>
                 <button onclick = "logout()">Logg ut</button> 
@@ -92,4 +92,10 @@ function isValidUrl(urlToCheck) {
         console.log("Link is not valid.")
         return false;
     }
+}
+
+function showYouMustLogin(){
+   return /*HTML*/`
+    <h2 class = "infoh2"> Denne siden kan bruke bare de som er logget inn</h2>
+    `
 }

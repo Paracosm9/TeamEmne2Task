@@ -39,7 +39,6 @@ const model = {
             isPoisonous: false,
             isPartiallyEdible: false,
             name: '',
-            //added array of formed items; 
         },
 
         // },

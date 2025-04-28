@@ -48,6 +48,9 @@ function drawSorting() {
                 <label for="">Valg type:</label>
                 <br>
 
+                <div class = "checkers">
+                <div class = "checker">
+                
                 <input type="checkbox" 
                 id="edible" 
                 name="eat" 
@@ -55,8 +58,10 @@ function drawSorting() {
                 ${model.inputs.catalog.isEdible  ? "checked" : ""}
                 onclick = "model.inputs.catalog.isEdible = this.checked, getArrayOfItems()"
                 >
+                <label for="edible"> Spiselige</label>
+                </div>
+                <div class = "checker">
                 
-                <label for="edible"> Spiselige</label><br>
                 <input type="checkbox" 
                 id="poisonous" 
                 name="poison" 
@@ -64,8 +69,10 @@ function drawSorting() {
                 ${model.inputs.catalog.isPoisonous  ? "checked" : ""}
                 onclick = "model.inputs.catalog.isPoisonous = this.checked, getArrayOfItems()"
                 >
-
-                <label for="poisonous"> Giftige</label><br>
+                <label for="poisonous"> Giftige</label>
+                </div>
+                <div class = "checker">
+                
                 <input type="checkbox" 
                 id="condEdible" 
                 name="edWithConditions" 
@@ -73,7 +80,10 @@ function drawSorting() {
                 ${model.inputs.catalog.isPartiallyEdible  ? "checked" : ""}
                 onclick = "model.inputs.catalog.isPartiallyEdible = this.checked, getArrayOfItems()"
                 >
-                <label for="condEdible">Betinget spiselige</label><br>
+                <label for="condEdible">Betinget spiselige</label>
+                
+                </div>
+                </div>
                 <hr>
         </div>
     `;

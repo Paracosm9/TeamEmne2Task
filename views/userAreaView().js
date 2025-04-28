@@ -1,9 +1,7 @@
 function userAreaView(){
     return isLoggedIn() ? 
     drawUserArea() : 
-    /*HTML*/`
-    <h2 class = "infoh2"> Denne siden kan bruke bare de som er logget inn</h2>
-    `
+    showYouMustLogin();
 }
 
 

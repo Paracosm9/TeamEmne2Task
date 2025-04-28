@@ -61,7 +61,7 @@ function drawRewards() {
             <div style="border: 5px solid black; margin: 20px; padding: 10px; text-align: center; width: 200px;">
                 ${imageHtml}
                 <br>
-                <button style="margin-top: 10px; background-color: lavender;">${buttonText}</button>
+                <button>${buttonText}</button>
             </div>
             <br>
         `;

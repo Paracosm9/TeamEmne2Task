@@ -1,11 +1,16 @@
-function registerFindingView(){
-    if ( model.inputs.registerFinding.name == ''
-        || model.inputs.registerFinding.img == ''
-        || model.inputs.registerFinding.locationName == ''
-        || model.inputs.registerFinding.description == ''){
-    return drawView();
-    } 
-    else return drawThankYouPage();
+function registerFindingView(){  
+    if (isLoggedIn()){
+        if ( model.inputs.registerFinding.name == ''
+            || model.inputs.registerFinding.img == ''
+            || model.inputs.registerFinding.locationName == ''
+            || model.inputs.registerFinding.description == ''){
+        return drawView();
+        } 
+        else return drawThankYouPage();
+    }
+    else {
+        return showYouMustLogin();
+    }
 }
 
 function drawView(){
@@ -43,7 +48,7 @@ function drawView(){
         >
         </div>
 
-        <div class = "findingAdd" style = "border: 5px solid black; margin: 20px; display:flex; justify-content: center; flex-direction: row; padding: 5px;">
+        <div class = "findingAdd">
         <button class = "addButton" id = "regFindButtonOk" onclick = "updateModel()" >Registrer</button>
         <button class = "addButton" id = "regFindButtonCancel" onclick = "setPage(model.app.pages.catalog)">Avbryt</button>
         </div>

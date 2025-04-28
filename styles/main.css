@@ -33,7 +33,7 @@ img {
     display: block;
 }
 
-input {
+input, select {
     border: 1px solid #cccccc;
     border-radius: 5px;
     background: #ffffff;
@@ -153,7 +153,8 @@ button:hover {
     text-align: center;
 }
 
-.footer, .header {
+.footer,
+.header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -168,7 +169,9 @@ button:hover {
 .footer>u:hover {
     cursor: pointer;
 }
-.textFields, .userReg { 
+
+.textFields,
+.userReg {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -176,8 +179,52 @@ button:hover {
 }
 
 .buttonsOnRegAndLogin {
-    display: flex; 
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
 }
+
+.checkers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.checker {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    gap: 8px; 
+}
+
+textarea {
+    width: 100%;
+    max-width: 800px; 
+    min-height: 120px; 
+    padding: 10px 15px; 
+    font-size: 16px;
+    font-family: "Josefin Sans", sans-serif;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    background-color: #ffffff;
+    resize: vertical; 
+    box-sizing: border-box; 
+    color: #333333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  textarea:focus {
+    border-color: rgb(165, 194, 113);
+    box-shadow: 0 0 5px rgba(165, 194, 113, 0.5);
+    outline: none;
+  }
+
+  input:focus {
+    border-color: rgb(165, 194, 113);
+    box-shadow: 0 0 5px rgba(165, 194, 113, 0.5);
+    outline: none;
+  }
+
+ 
