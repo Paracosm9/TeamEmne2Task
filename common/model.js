@@ -12,7 +12,6 @@ const model = {
             item: 'itemPage',
             finding: 'findingPage',
             catalog: 'catalog',
-            search: 'searchFilter',
             adminPage: 'adminPage',
             homeAndMain: 'homePage',
             // itemsAdmin: 'itemPageForAdmin', to impelement inputs for changing items (c) Andrew
@@ -71,6 +70,16 @@ const model = {
             latinName: '',
             description: ''
         },
+        adminPage: {
+            findings: [], 
+            itemImg: '', 
+            itemId: 0, 
+            name: '', 
+            latinName: '', 
+            description: '', 
+            type: 0, 
+            characteristics: 0
+        }
 },
     
     data : {
@@ -104,7 +113,8 @@ const model = {
             {id: 2, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-29T08:55:00', description: 'Kantareller!! Bak et tre.', acceptedToBePublished: true},
             {id: 3, userId: 1, itemId: 1, locationId: 2, dateFind: '2025-03-30T08:55:00', description: 'Sopp!!! Bak et tre.', acceptedToBePublished: true},
             {id: 4, userId: 1, itemId: 1, locationId: 1, dateFind: '2025-04-30T08:55:00', description: 'Sopp!!! Mange!', acceptedToBePublished: true},
-            {id: 5, userId: 2, itemId: 2, locationId: 2, dateFind: '2025-03-22T08:55:00', description: 'Her var det lite blåbær..', acceptedToBePublished: false}
+            {id: 5, userId: 2, itemId: 2, locationId: 2, dateFind: '2025-03-22T08:55:00', description: 'Her var det lite blåbær..', acceptedToBePublished: false}, 
+            {id: 6, userId: 2, itemId: 0, locationId: 1, dateFind: '2025-05-01T08:55:00', description: 'Her var det lite bringebær, rett i butikken!', acceptedToBePublished: false}, 
         ],
         
         items: [
@@ -156,6 +166,8 @@ const model = {
             {id: 11, filePath: 'common/images/items/fluesopp_item.jpg'},
             {id: 12, filePath: 'common/images/userimages/default_user.png'},
             {id: 13, filePath: 'common/images/userimages/not_default_userpic.png'},
+            {id: 14, filePath: 'common/images/findings/blbrry_finding.png'},
+            {id: 15, filePath: 'common/images/findings/raspberry_find.jpg'},
         ],
         
         rewardImages: [
@@ -168,6 +180,8 @@ const model = {
             {findingId: 2, imgId: 8},
             {findingId: 3, imgId: 9},
             {findingId: 4, imgId: 7},
+            {findingId: 5, imgId: 14},
+            {findingId: 6, imgId: 15},
         ], 
 
         itemsImages: [

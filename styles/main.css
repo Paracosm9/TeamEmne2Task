@@ -170,9 +170,11 @@ button:hover {
     background-color: rgb(165, 194, 113);
 }
 
-.footer>u:hover, .sitemap>u:hover {
+.footer>u:hover,
+.sitemap>u:hover {
     cursor: pointer;
 }
+
 .sitemap {
     text-align: left;
 }
@@ -227,13 +229,15 @@ button:hover {
 }
 
 .catalogSearchItem label {
-    min-width: 100px; 
+    min-width: 100px;
     text-align: right;
 }
+
 textarea {
     width: 100%;
     max-width: 800px;
-    min-height: 120px;  border-radius: 55px;
+    min-height: 120px;
+    border-radius: 5px;
     margin: 5px;
     background-color: #ffffff;
     resize: vertical;
@@ -282,7 +286,7 @@ input:focus {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-   
+
 }
 
 .pUserText {
@@ -304,17 +308,92 @@ input:focus {
     ;
 }
 
-.itemPageDiv, .findingsPage {
+.itemPageDiv,
+.findingsPage {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
     margin-top: 20px;
-} 
+}
 
-.findingsPage img{
+.findingsPage img,
+.oneFinding img {
     border-radius: 55px;
     margin: 5px;
     box-sizing: border-box;
     border: 5px solid #cccccc;
+}
+
+/*Admin area*/
+
+.adminPage {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 25% 25% 25% 25%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    grid-template-areas:
+        "aItem aItem fAccept fAccept "
+        "aItem aItem uStat uStat"
+        "aItem aItem uStat uStat"
+    ;
+}
+
+.userStat {
+    grid-area: uStat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addItemAdm {
+    grid-area: aItem;
+}
+
+.findingsToAccept {
+    max-height: 500px;
+    overflow: scroll;
+    overflow-y: visible;
+    overflow-x: auto;
+    grid-area: fAccept;
+
+}
+
+.oneFinding {
+    display: flex;
+    /* width: 70%; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* box-sizing: border-box; */
+    background: rgb(227, 255, 174);
+    border: 1px solid rgb(39, 201, 33);
+    border-radius: 8px;
+}
+
+.itemAdd {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px;
+}
+
+table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+    font-family: "Josefin Sans", sans-serif;
+    background-color: rgb(227, 255, 174);
+    border-radius: 8px;
+
+}
+
+th,
+td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
 }

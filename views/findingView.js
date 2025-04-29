@@ -13,18 +13,18 @@ function drawFinding(id) {
         </div>
 
     <div class = "descriptName">
-    ${getUserNameHTML()}
+        ${getUserNameHTML()}
     </div> 
     
     <div class = "descript">
-    ${getDescriptionHTML()}
-    <br>
-    ${getFindingPlaceHTML()}
+        ${getDescriptionHTML()}
+        <br>
+        ${getFindingPlaceHTML()}
     </div> 
 
   
     <div class = "buttons">
-    <button class = "buttonOnItem" onclick = "setItemPage(model.app.pages.item, ${getItemId(id)})">Tilbake til item</button>
+        <button class = "buttonOnItem" onclick = "setItemPage(model.app.pages.item, ${getItemId(id)})">Tilbake til item</button>
     </div>
     </div>
     `;

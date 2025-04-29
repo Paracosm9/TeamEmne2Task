@@ -1,5 +1,8 @@
 function registerUserView() {
-    return drawRegisterUser();
+      return isLoggedIn() ?  
+    /*HTML*/`
+    <h1>Du er logged inn som ${getUserName()}</h1>
+    ` : drawRegisterUser() ;
 }
 
 function drawRegisterUser() {

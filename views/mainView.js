@@ -42,6 +42,9 @@
         else if (page === 'userArea') {
             currentPageView = userAreaView();
         }
+        else if (page === 'siteMap') {
+            currentPageView = siteMapView();
+        }
     // console.log(currentPageView);
     // <!--${headerView()} -->   
     document.getElementById('app').innerHTML = /*HTML*/`   
