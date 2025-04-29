@@ -212,13 +212,14 @@ button:hover {
 }
 
 .catalogSearch {
+    width: 100%;
+    max-width: 600px;
+    min-width: 500px;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: left;
     gap: 8px;
-    margin-top: 20px;
-
 }
 
 .catalogSearchItem {

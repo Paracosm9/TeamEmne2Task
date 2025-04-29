@@ -3,7 +3,7 @@
         const page = model.app.currentPage; 
 
         let currentPageView = '';
-        let previousPageView = '';
+        
 
         if (page === 'homePage') {
             currentPageView = homePageView(); 
