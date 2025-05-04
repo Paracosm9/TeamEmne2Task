@@ -14,15 +14,12 @@ body {
 .container {
     display: grid;
     /*to play with flex for tests...*/
-
     grid-template-rows: 150px 1fr 50px;
     grid-template-columns: auto;
     justify-items: center;
     min-height: 100vh;
-    padding-top: 20px;
     gap: 20px;
     background-color: #f0fff4;
-    margin-top: 5px;
     box-sizing: border-box;
     text-align: center;
     font-size: x-large;
@@ -135,12 +132,7 @@ button:hover {
     border-radius: 50%;
 }
 
-.userInformation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
+
 
 .descriptImg {
     border-radius: 55px;
@@ -157,8 +149,7 @@ button:hover {
     text-align: center;
 }
 
-.footer,
-.header {
+.footer {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -235,7 +226,7 @@ button:hover {
 }
 
 textarea {
-    width: 100%;
+    width: 95%;
     max-width: 800px;
     min-height: 120px;
     border-radius: 5px;
@@ -246,6 +237,13 @@ textarea {
     box-sizing: border-box;
     color: #333333;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.findingAdd {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid rgb(39, 201, 33);
 }
 
 textarea:focus {
@@ -268,7 +266,6 @@ input:focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: rgba(165, 194, 113); */
     border: 1px solid rgb(165, 194, 113);
     ;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -397,4 +394,44 @@ td {
     padding: 12px 16px;
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
+}
+
+/*Header*/
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 125px;
+    background-color: rgb(165, 194, 113);
+    overflow: hidden;
+}
+
+.logo-img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 125px;
+    max-height: 125px;
+    height: auto;
+    overflow: hidden;
+}
+
+.userInformation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; 
+    font-size: small;
+}
+
+.user-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    font-size: small;
 }

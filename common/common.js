@@ -33,12 +33,14 @@ function getUserName() {
     if (model.app.currentUser != 0) {
         for (const user of model.data.users) {
             if (model.app.currentUser == user.id) {
-                return `       
-                <div class = "userInformation">
-                <img src = "${getUserPic(getPictureAvatarId())}" class = "imgAvatar" width = "75" height = "75" onclick ="setPage(model.app.pages.userArea)">
-                <br>${user.name} <br>
-                </div>
-                <button onclick = "logout()">Logg ut</button> 
+                return /*HTML*/` 
+               <div class = "userInformation">
+                    <img src = "${getUserPic(getPictureAvatarId())}" class = "imgAvatar" width = "75" height = "75" onclick ="setPage(model.app.pages.userArea)">
+                   ${user.name}
+               </div>
+               <div class = "logouyt">
+                    <button onclick = "logout()">Logg ut</button>
+               </div>
                 `
             }
         }

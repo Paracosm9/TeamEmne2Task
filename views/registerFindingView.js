@@ -15,7 +15,7 @@ function registerFindingView(){
 
 function drawView(){
     return /*HTML*/`
-        <div class = "findingAdd" style = "border: 5px solid black; margin: 20px; display:flex; justify-content: center; flex-direction: column; padding: 5px; ">
+        <div class = "findingAdd">
         
         <input type="text" id="linkToWebSite" 
         value = "${model.inputs.registerFinding.img == '' ? 'Legg til linken til image' : model.inputs.registerFinding.img}" 

@@ -14,7 +14,6 @@ const model = {
             catalog: 'catalog',
             adminPage: 'adminPage',
             homeAndMain: 'homePage',
-            // itemsAdmin: 'itemPageForAdmin', to impelement inputs for changing items (c) Andrew
             newlyRegistered: 'newlyRegistered',
             rewards: 'rewards',
             registerFinding: 'registerFinding',
@@ -39,13 +38,6 @@ const model = {
             isPartiallyEdible: false,
             name: '',
         },
-
-        // },
-       //lang tilbake i loggen nice 
-        // rewards: { 
-        //     selectedRewardId: 0, 
-
-        // },
         
         registerFinding: {
             name: '',
@@ -129,16 +121,6 @@ const model = {
             {id: 3, name: 'Plant'}
         ],
         
-        lookALikes: [ //Do we need this stuff at all? 
-            {itemId: 1, looksLikeItemId: 3},
-            {itemId: 3, looksLikeItemId: 4},
-            {itemId: 3, looksLikeItemId: 4},
-            {itemId: 1, looksLikeItemId: 2},
-            {itemId: 2, looksLikeItemId: 3},
-            {itemId: 3, looksLikeItemId: 3},
-            {itemId: 1, looksLikeItemId: 3},
-            {itemId: 1, looksLikeItemId: 3}
-        ],  
         
         itemCharacteristics: [
             {itemId: 1, type: 1},

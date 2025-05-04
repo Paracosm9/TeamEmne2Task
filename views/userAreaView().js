@@ -70,17 +70,14 @@ function drawUserArea(){
         </div>
     </div>
 
-    <div class = "textAreaUser">
-    <h4>Gi oss gjerne beskjed!</h4>
-    <textarea class = "textarea" id="feedbackform" 
-    name="feedbackform">
-    </textarea>
-    <br>
-    <button onclick = "">Send</button>
+        <div class = "textAreaUser">
+        <h4>Gi oss gjerne beskjed!</h4>
+        <textarea class = "textarea" id="feedbackform" 
+        name="feedbackform">
+        </textarea>
+        <br>
+        <button onclick = "">Send</button>
+        </div> 
     </div>
-
-    
-    </div>
-     
     `;
 }
