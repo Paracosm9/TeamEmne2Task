@@ -89,7 +89,7 @@ button:hover {
 }
 
 .carousel-item img {
-    width: 600px;
+    width: 560px;
     height: 250px;
     object-fit: cover;
     border-radius: 8px;
