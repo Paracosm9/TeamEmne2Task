@@ -102,6 +102,7 @@ function updateItems(){
                 description: inputs.description, 
                 type: inputs.type
             }; 
+            model.data.items.push(newItem);
             setNewImageAdmin();
             setNewCharacteristic(); 
             cleanInputs(); 
